@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Water Splash | E-Ticket
+    </title>
+
+
+    <!-- CSS UTAMA WEBSITE
+         TETAP MENGGUNAKAN STYLE.CSS YANG SUDAH ADA -->
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- LIBRARY QR CODE -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        defer
+    ></script>
+
+
+    <!-- LIBRARY DOWNLOAD PNG -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        defer
+    ></script>
+
+
+    <!-- APP.JS TETAP DIPAKAI
+         UNTUK BUBBLE DAN WATER RIPPLE -->
+
+    <script
+        src="js/app.js"
+        defer
+    ></script>
+
+
+    <!-- JAVASCRIPT CONFIRMATION -->
+
+    <script
+        src="js/confirmation.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body class="confirmation-body">
+
+
+    <!-- BUBBLE EFFECT
+         JANGAN DIHAPUS -->
+
+    <div
+        class="bubble-layer"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- HEADER -->
+
+    <header class="confirmation-header">
+
+        <nav class="confirmation-navbar">
+
+            <a
+                href="index.html"
+                class="confirmation-logo"
+            >
+                WATER SPLASH
+            </a>
+
+
+            <a
+                href="index.html"
+                class="confirmation-home-link"
+            >
+                Back Home
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="confirmation-page">
+
+
+        <!-- CONFIRMATION TITLE -->
+
+        <section class="confirmation-heading">
+
+            <p class="confirmation-label">
+                E-TICKET CONFIRMED
+            </p>
+
+
+            <h1>
+                Your Water Splash Ticket Is Ready
+            </h1>
+
+
+            <p class="confirmation-description">
+                Save your e-ticket and keep the QR code ready for entry.
+            </p>
+
+        </section>
+
+
+
+        <!-- ERROR BOX -->
+
+        <section
+            class="confirmation-error"
+            id="confirmation-error"
+            hidden
+        >
+
+            <h2>
+                E-ticket belum dapat ditampilkan
+            </h2>
+
+
+            <p id="confirmation-error-message">
+                Data pesanan tidak ditemukan.
+            </p>
+
+
+            <a
+                href="tiket.html"
+                class="confirmation-button confirmation-button-primary"
+            >
+                Back to Tickets
+            </a>
+
+        </section>
+
+
+
+        <!-- ORDER SUMMARY -->
+
+        <section
+            class="order-summary"
+            id="order-summary"
+        >
+
+            <div class="order-summary-item">
+
+                <span>
+                    ORDER ID
+                </span>
+
+                <strong id="order-id">
+                    Preparing...
+                </strong>
+
+            </div>
+
+
+            <div class="order-summary-item">
+
+                <span>
+                    CUSTOMER
+                </span>
+
+                <strong id="order-name">
+                    Preparing...
+                </strong>
+
+            </div>
+
+
+            <div class="order-summary-item">
+
+                <span>
+                    TICKET
+                </span>
+
+                <strong id="order-ticket">
+                    Preparing...
+                </strong>
+
+            </div>
+
+
+            <div class="order-summary-item">
+
+                <span>
+                    TOTAL TICKETS
+                </span>
+
+                <strong id="order-total-tickets">
+                    Preparing...
+                </strong>
+
+            </div>
+
+
+            <div class="order-summary-item">
+
+                <span>
+                    TOTAL PAYMENT
+                </span>
+
+                <strong id="order-total-payment">
+                    Preparing...
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- E-TICKET AREA -->
+
+        <section
+            class="ticket-area"
+            id="ticket-area"
+        >
+
+            <div class="ticket-area-heading">
+
+                <p>
+                    OFFICIAL WATER SPLASH E-TICKET
+                </p>
+
+
+                <h2>
+                    Festival E-Ticket
+                </h2>
+
+            </div>
+
+
+            <div
+                class="ticket-list"
+                id="ticket-list"
+            >
+
+                <!-- TICKET DIBUAT OLEH JAVASCRIPT -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ACTION BUTTONS -->
+
+        <section
+            class="confirmation-actions"
+            id="confirmation-actions"
+        >
+
+            <button
+                type="button"
+                class="confirmation-button confirmation-button-primary"
+                id="download-ticket"
+            >
+                Download E-Ticket
+            </button>
+
+
+            <button
+                type="button"
+                class="confirmation-button confirmation-button-outline"
+                id="print-ticket"
+            >
+                Print / Save as PDF
+            </button>
+
+
+            <a
+                href="index.html"
+                class="confirmation-button confirmation-button-outline"
+            >
+                Back to Home
+            </a>
+
+        </section>
+
+
+
+        <!-- DISCLAIMER -->
+
+        <div class="email-confirmation-box">
+
+    <span class="email-confirmation-label">
+        EMAIL CONFIRMATION
+    </span>
+
+    <p>
+        A confirmation email has been sent to
+        <strong id="confirmation-email">
+            Preparing...
+        </strong>
+    </p>
+
+</div>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Water Splash 2026 Summer Water Festival at GWK Cultural Park, Bali."
+    >
+
+    <title>
+        Water Splash 2026
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- STYLE KHUSUS HERO VIDEO -->
+
+    <style>
+
+        /* =====================================================
+           HERO VIDEO
+        ===================================================== */
+
+        .hero-video-section {
+
+            position: relative;
+
+            min-height: 100vh;
+
+            overflow: hidden;
+
+            background:
+                url("assets/Hero.jpg")
+                center / cover
+                no-repeat;
+
+        }
+
+
+        .hero-background-video {
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            z-index: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            min-width: 100%;
+
+            min-height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            transform:
+                translate(-50%, -50%);
+
+            pointer-events: none;
+
+        }
+
+
+        .hero-video-section .hero-overlay {
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 1;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(3, 53, 94, 0.94) 0%,
+                    rgba(5, 91, 151, 0.72) 45%,
+                    rgba(11, 146, 220, 0.30) 100%
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .hero-video-section .hero-glow {
+
+            position: absolute;
+
+            z-index: 2;
+
+            pointer-events: none;
+
+        }
+
+
+        .hero-video-section .hero-content {
+
+            position: relative;
+
+            z-index: 4;
+
+        }
+
+
+        .hero-video-section .hero-wave {
+
+            position: absolute;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: -1px;
+
+            z-index: 5;
+
+            pointer-events: none;
+
+        }
+
+
+        @media screen and (max-width: 700px) {
+
+            .hero-video-section {
+
+                min-height: 100svh;
+
+            }
+
+
+            .hero-background-video {
+
+                object-position: center center;
+
+            }
+
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .hero-background-video {
+
+                display: none;
+
+            }
+
+
+            .hero-video-section {
+
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(3, 53, 94, 0.85),
+                        rgba(11, 146, 220, 0.42)
+                    ),
+                    url("assets/Hero.jpg")
+                    center / cover
+                    no-repeat;
+
+            }
+
+        }
+
+    </style>
+
+
+    <script
+        src="js/app.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- BUBBLE EFFECT -->
+
+    <div
+        class="bubble-layer"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- HEADER -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="Water Splash Home"
+            >
+                WATER SPLASH
+            </a>
+
+
+            <div class="nav-menu">
+
+                <a href="#home">
+                    Home
+                </a>
+
+
+                <a href="#lineup">
+                    Line Up
+                </a>
+
+
+                <a href="experience.html">
+                    Experience
+                </a>
+
+
+                <a href="tiket.html">
+                    Tickets
+                </a>
+
+            </div>
+
+
+            <a
+                href="tiket.html"
+                class="nav-button"
+            >
+                Buy Tickets
+            </a>
+
+
+            <button
+                type="button"
+                class="menu-toggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- =================================================
+             HERO VIDEO
+        ================================================== -->
+
+        <section
+            class="hero hero-video-section"
+            id="home"
+        >
+
+
+            <!-- VIDEO BACKGROUND -->
+
+            <video
+                class="hero-background-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="assets/Hero.jpg"
+                aria-hidden="true"
+            >
+
+                <source
+                    src="assets/Hero.mp4"
+                    type="video/mp4"
+                >
+
+            </video>
+
+
+
+            <!-- HERO OVERLAY -->
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-glow"></div>
+
+
+
+            <!-- HERO CONTENT -->
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    SUMMER WATER FESTIVAL 2026
+                </p>
+
+
+                <h1>
+
+                    WATER
+
+                    <span>
+                        SPLASH
+                    </span>
+
+                </h1>
+
+
+                <p class="hero-description">
+                    One unforgettable day filled with music,
+                    water, summer energy, and festival experiences
+                    at GWK Cultural Park, Bali.
+                </p>
+
+
+                <div class="hero-info">
+
+                    <div>
+
+                        <small>
+                            DATE
+                        </small>
+
+                        <strong>
+                            15 August 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <small>
+                            VENUE
+                        </small>
+
+                        <strong>
+                            GWK Cultural Park, Bali
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-actions">
+
+                    <a
+                        href="tiket.html"
+                        class="button button-lime"
+                    >
+                        Buy Tickets
+                    </a>
+
+
+                    <a
+                        href="#lineup"
+                        class="button button-outline"
+                    >
+                        Explore Line Up
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HERO WAVE -->
+
+            <div
+                class="hero-wave"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 1440 230"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+
+                    <path
+                        fill="#f5fcff"
+                        d="
+                            M0,160
+                            C180,210 340,90 540,135
+                            C760,185 930,245 1140,155
+                            C1260,105 1360,115 1440,145
+                            L1440,230
+                            L0,230
+                            Z
+                        "
+                    />
+
+                </svg>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EVENT INFORMATION
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    FESTIVAL INFORMATION
+                </p>
+
+
+                <h2>
+                    Get Ready to Make a Splash
+                </h2>
+
+
+                <p>
+                    Music, water activities, exciting festival areas,
+                    and refreshing summer moments are waiting for you.
+                </p>
+
+            </div>
+
+
+
+            <div class="info-grid">
+
+
+                <article class="info-card">
+
+                    <span>
+                        01
+                    </span>
+
+
+                    <h3>
+                        Live Music
+                    </h3>
+
+
+                    <p>
+                        Enjoy performances from Water Splash artists
+                        throughout the festival.
+                    </p>
+
+                </article>
+
+
+
+                <article class="info-card">
+
+                    <span>
+                        02
+                    </span>
+
+
+                    <h3>
+                        Water Experience
+                    </h3>
+
+
+                    <p>
+                        Explore interactive water activities,
+                        festival games, and summer attractions.
+                    </p>
+
+                </article>
+
+
+
+                <article class="info-card">
+
+                    <span>
+                        03
+                    </span>
+
+
+                    <h3>
+                        Festival Lifestyle
+                    </h3>
+
+
+                    <p>
+                        Discover food, drinks, merchandise,
+                        lounges, photo spots, and facilities.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COUNTDOWN
+        ================================================== -->
+
+        <section class="countdown-section">
+
+            <div class="countdown-title">
+
+                <p class="section-label">
+                    SAVE THE DATE
+                </p>
+
+
+                <h2>
+                    The Biggest Splash Is Coming
+                </h2>
+
+
+                <p>
+                    15 August 2026 · GWK Cultural Park, Bali
+                </p>
+
+            </div>
+
+
+
+            <div
+                class="countdown"
+                aria-label="Countdown to Water Splash 2026"
+            >
+
+
+                <div class="countdown-box">
+
+                    <strong
+                        id="days"
+                        data-countdown-days
+                    >
+                        00
+                    </strong>
+
+                    <span>
+                        DAYS
+                    </span>
+
+                </div>
+
+
+
+                <div class="countdown-box">
+
+                    <strong
+                        id="hours"
+                        data-countdown-hours
+                    >
+                        00
+                    </strong>
+
+                    <span>
+                        HOURS
+                    </span>
+
+                </div>
+
+
+
+                <div class="countdown-box">
+
+                    <strong
+                        id="minutes"
+                        data-countdown-minutes
+                    >
+                        00
+                    </strong>
+
+                    <span>
+                        MINUTES
+                    </span>
+
+                </div>
+
+
+
+                <div class="countdown-box">
+
+                    <strong
+                        id="seconds"
+                        data-countdown-seconds
+                    >
+                        00
+                    </strong>
+
+                    <span>
+                        SECONDS
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LINE UP
+        ================================================== -->
+
+        <section
+            class="section lineup-section"
+            id="lineup"
+        >
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    WATER SPLASH 2026
+                </p>
+
+
+                <h2>
+                    Meet the Line Up
+                </h2>
+
+
+                <p>
+                    Artists bringing music, energy, and unforgettable
+                    performances to the Water Splash stage.
+                </p>
+
+            </div>
+
+
+
+            <div class="lineup-grid">
+
+
+                <!-- JENIFFER NORA -->
+
+                <article class="artist-card">
+
+                    <div class="artist-photo">
+
+                        <img
+                            src="assets/Jeniffer.jpg"
+                            alt="Jeniffer Nora"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Jeniffer Nora
+                    </h3>
+
+                </article>
+
+
+
+                <!-- HARJUNA LEE -->
+
+                <article class="artist-card">
+
+                    <div class="artist-photo">
+
+                        <img
+                            src="assets/harjuna.jpg"
+                            alt="Harjuna Lee"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Harjuna Lee
+                    </h3>
+
+                </article>
+
+
+
+                <!-- ARCHIVE X -->
+
+                <article class="artist-card">
+
+                    <div class="artist-photo">
+
+                        <img
+                            src="assets/Archieve.jpg"
+                            alt="ARCHIVE X"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        ARCHIVE X
+                    </h3>
+
+                </article>
+
+
+
+                <!-- KIRA -->
+
+                <article class="artist-card">
+
+                    <div class="artist-photo">
+
+                        <img
+                            src="assets/Kira.jpg"
+                            alt="KiRa"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        KiRa
+                    </h3>
+
+                </article>
+
+
+
+                <!-- ETHAN -->
+
+                <article class="artist-card">
+
+                    <div class="artist-photo">
+
+                        <img
+                            src="assets/Ethan.jpg"
+                            alt="ETHAN"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        ETHAN
+                    </h3>
+
+                </article>
+
+
+
+                <!-- DRE LEE -->
+
+                <article class="artist-card">
+
+                    <div class="artist-photo">
+
+                        <img
+                            src="assets/Dre.jpg"
+                            alt="Dre Lee"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Dre Lee
+                    </h3>
+
+                </article>
+
+
+
+                <!-- FAH -->
+
+                <article class="artist-card">
+
+                    <div class="artist-photo">
+
+                        <img
+                            src="assets/Fah.jpg"
+                            alt="Fah"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <h3>
+                        Fah
+                    </h3>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EXPERIENCE PREVIEW
+        ================================================== -->
+
+        <section
+            class="section experience-section"
+            id="experience-preview"
+        >
+
+            <div class="section-heading light-heading">
+
+                <p class="section-label">
+                    MORE THAN A FESTIVAL
+                </p>
+
+
+                <h2>
+                    Water Splash Experience
+                </h2>
+
+
+                <p>
+                    Explore water activities, festival food,
+                    lounge areas, premium experiences,
+                    and essential facilities.
+                </p>
+
+            </div>
+
+
+
+            <div class="experience-grid">
+
+
+                <article class="experience-card">
+
+                    <span>
+                        01
+                    </span>
+
+
+                    <h3>
+                        Splash Activities
+                    </h3>
+
+
+                    <p>
+                        Interactive water games, festival challenges,
+                        water battle zones, and refreshing activities.
+                    </p>
+
+                </article>
+
+
+
+                <article class="experience-card">
+
+                    <span>
+                        02
+                    </span>
+
+
+                    <h3>
+                        Art & Chill Lounge
+                    </h3>
+
+
+                    <p>
+                        Colorful installations, summer lounge areas,
+                        charging stations, and relaxing spaces.
+                    </p>
+
+                </article>
+
+
+
+                <article class="experience-card">
+
+                    <span>
+                        03
+                    </span>
+
+
+                    <h3>
+                        Food & Drinks
+                    </h3>
+
+
+                    <p>
+                        Refreshing drinks, local favorites,
+                        international dishes, and plant-based menus.
+                    </p>
+
+                </article>
+
+
+
+                <article class="experience-card">
+
+                    <span>
+                        04
+                    </span>
+
+
+                    <h3>
+                        Ocean VVIP Lounge
+                    </h3>
+
+
+                    <p>
+                        Premium viewing access, comfortable seating,
+                        private refreshments, and personalized service.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+
+            <div class="explore-ticket">
+
+                <a
+                    href="experience.html"
+                    class="button button-lime"
+                >
+                    Explore the Experience
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TICKET PREVIEW
+        ================================================== -->
+
+        <section
+            class="section ticket-preview-section"
+            id="tickets"
+        >
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    CHOOSE YOUR WAVE
+                </p>
+
+
+                <h2>
+                    Water Splash Tickets
+                </h2>
+
+
+                <p>
+                    Pick the festival access that matches
+                    your Water Splash experience.
+                </p>
+
+            </div>
+
+
+
+            <div class="preview-grid">
+
+
+                <!-- SPLASH PASS -->
+
+                <article class="preview-ticket preview-general">
+
+                    <div class="preview-top">
+
+                        <span class="buy-ticket-label">
+                            WATER SPLASH 2026
+                        </span>
+
+
+                        <span class="status-badge available">
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+
+                    <p class="release-label">
+                        EARLY BIRD
+                    </p>
+
+
+                    <p class="preview-category">
+                        GENERAL ACCESS
+                    </p>
+
+
+                    <h3>
+                        Splash Pass
+                    </h3>
+
+
+                    <strong>
+                        Rp1.500.000
+                    </strong>
+
+
+                    <p>
+                        General festival access with entry
+                        to the main Water Splash zone.
+                    </p>
+
+                </article>
+
+
+
+                <!-- WAVE VIP -->
+
+                <article class="preview-ticket preview-vip">
+
+                    <div class="preview-top">
+
+                        <span class="buy-ticket-label">
+                            WATER SPLASH 2026
+                        </span>
+
+
+                        <span class="status-badge available">
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+
+                    <p class="preview-category">
+                        VIP ACCESS
+                    </p>
+
+
+                    <h3>
+                        Wave VIP
+                    </h3>
+
+
+                    <strong>
+                        Rp3.500.000
+                    </strong>
+
+
+                    <p>
+                        Exclusive VIP privileges, VIP Wave Zone access,
+                        and Water Splash merchandise.
+                    </p>
+
+                </article>
+
+
+
+                <!-- OCEAN VVIP -->
+
+                <article class="preview-ticket preview-vvip">
+
+                    <div class="preview-top">
+
+                        <span class="buy-ticket-label">
+                            WATER SPLASH 2026
+                        </span>
+
+
+                        <span class="status-badge available">
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+
+                    <p class="preview-category">
+                        VVIP ACCESS
+                    </p>
+
+
+                    <h3>
+                        Ocean VVIP
+                    </h3>
+
+
+                    <strong>
+                        Rp5.500.000
+                    </strong>
+
+
+                    <p>
+                        Premium festival access with Ocean VVIP Lounge,
+                        exclusive viewing, and Water Splash merchandise.
+                    </p>
+
+                </article>
+
+
+
+                <!-- SPLASH SQUAD -->
+
+                <article class="preview-ticket preview-squad">
+
+                    <div class="preview-top">
+
+                        <span class="buy-ticket-label">
+                            WATER SPLASH 2026
+                        </span>
+
+
+                        <span class="status-badge available">
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+
+                    <p class="preview-category">
+                        GROUP GENERAL ACCESS
+                    </p>
+
+
+                    <h3>
+                        Splash Squad
+                    </h3>
+
+
+                    <strong>
+                        Rp12.000.000
+                    </strong>
+
+
+                    <p>
+                        Five General Splash Pass tickets
+                        for one group festival entry.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+
+            <div class="explore-ticket">
+
+                <a
+                    href="tiket.html"
+                    class="button button-blue"
+                >
+                    Explore All Tickets
+                </a>
+
+            </div>
+
+
+
+            <p class="roleplay-note">
+                Water Splash is a fictional roleplay event.
+                Tickets have no real-world admission or monetary value.
+            </p>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <h2>
+            WATER SPLASH
+        </h2>
+
+
+        <p>
+            Summer Water Festival · 15 August 2026
+        </p>
+
+
+        <small>
+            GWK Cultural Park, Bali · Fictional roleplay event.
+        </small>
+
+    </footer>
+
+
+</body>
+
+</html>

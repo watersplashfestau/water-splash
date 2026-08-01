@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Choose your Water Splash 2026 festival ticket."
+    >
+
+    <title>
+        Water Splash 2026 | Tickets
+    </title>
+
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <!-- BACKGROUND KHUSUS HALAMAN TIKET -->
+
+    <style>
+
+        .ticket-photo-bg {
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(3, 53, 94, 0.88),
+                    rgba(11, 146, 220, 0.65)
+                ),
+                url("assets/Hero.jpg");
+
+            background-position: center;
+
+            background-size: cover;
+
+            background-repeat: no-repeat;
+
+            background-attachment: fixed;
+
+        }
+
+
+        .ticket-photo-bg main {
+
+            min-height: 100vh;
+
+            background: transparent;
+
+        }
+
+
+        .ticket-photo-bg .ticket-page-section {
+
+            position: relative;
+
+            padding-top: 145px;
+
+            background: transparent;
+
+        }
+
+
+        .ticket-photo-bg .ticket-page-section::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 0;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(3, 53, 94, 0.32),
+                    rgba(3, 53, 94, 0.68)
+                );
+
+            pointer-events: none;
+
+        }
+
+
+        .ticket-photo-bg
+        .ticket-page-section > * {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+        .ticket-photo-bg
+        .ticket-page-section
+        .section-label {
+
+            color: var(--navy);
+
+            background:
+                rgba(216, 255, 79, 0.94);
+
+        }
+
+
+        .ticket-photo-bg
+        .ticket-page-section
+        .section-heading h2 {
+
+            color: var(--white);
+
+        }
+
+
+        .ticket-photo-bg
+        .ticket-page-section
+        .section-heading > p:last-child {
+
+            color:
+                rgba(255, 255, 255, 0.86);
+
+        }
+
+
+        .ticket-photo-bg
+        .roleplay-note {
+
+            color:
+                rgba(255, 255, 255, 0.84);
+
+        }
+
+
+        @media screen and (max-width: 700px) {
+
+            .ticket-photo-bg {
+
+                background-attachment: scroll;
+
+            }
+
+
+            .ticket-photo-bg
+            .ticket-page-section {
+
+                padding-top: 120px;
+
+            }
+
+        }
+
+    </style>
+
+
+    <script
+        src="js/app.js"
+        defer
+    ></script>
+
+
+    <script
+        src="js/tiket.js"
+        defer
+    ></script>
+
+</head>
+
+
+<body class="ticket-photo-bg">
+
+
+    <!-- BUBBLE EFFECT -->
+
+    <div
+        class="bubble-layer"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- HEADER -->
+
+    <header class="site-header inner-header">
+
+        <nav class="navbar">
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="Water Splash Home"
+            >
+                WATER SPLASH
+            </a>
+
+
+            <div class="nav-menu">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+
+                <a href="index.html#lineup">
+                    Line Up
+                </a>
+
+
+                <a href="experience.html">
+                    Experience
+                </a>
+
+
+                <a href="tiket.html">
+                    Tickets
+                </a>
+
+            </div>
+
+
+            <a
+                href="#ticket-list"
+                class="nav-button"
+            >
+                Buy Tickets
+            </a>
+
+
+            <button
+                type="button"
+                class="menu-toggle"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+            >
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+            </button>
+
+        </nav>
+
+    </header>
+
+
+
+    <main>
+
+
+        <!-- TICKET LIST -->
+
+        <section
+            class="ticket-page-section"
+            id="ticket-list"
+        >
+
+            <div class="section-heading">
+
+                <p class="section-label">
+                    FESTIVAL TICKETS
+                </p>
+
+
+                <h2>
+                    Find Your Perfect Splash
+                </h2>
+
+
+                <p>
+                    Choose from General, VIP, VVIP,
+                    or a group ticket for five festival guests.
+                </p>
+
+            </div>
+
+
+
+            <div class="full-ticket-grid">
+
+
+                <!-- SPLASH PASS -->
+
+                <article
+                    class="full-ticket-card full-general"
+                    id="splash-pass"
+                    data-ticket-card="splash-pass"
+                >
+
+                    <div class="full-ticket-top">
+
+                        <span class="buy-ticket-label">
+                            WATER SPLASH 2026
+                        </span>
+
+
+                        <span
+                            class="status-badge available"
+                            data-ticket-status="splash-pass"
+                        >
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+
+                    <p class="release-label">
+                        EARLY BIRD
+                    </p>
+
+
+                    <p class="full-category">
+                        GENERAL ACCESS
+                    </p>
+
+
+                    <h2>
+                        Splash Pass
+                    </h2>
+
+
+                    <strong class="ticket-price">
+                        Rp1.500.000
+                    </strong>
+
+
+                    <p class="ticket-description">
+                        General festival access for one guest
+                        to enjoy the main Water Splash experience.
+                    </p>
+
+
+                    <h3>
+                        Ticket Includes
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            One festival admission
+                        </li>
+
+                        <li>
+                            General Splash Zone access
+                        </li>
+
+                        <li>
+                            Main stage access
+                        </li>
+
+                        <li>
+                            Water activity area
+                        </li>
+
+                        <li>
+                            Food and beverage area
+                        </li>
+
+                        <li>
+                            Festival facilities
+                        </li>
+
+                    </ul>
+
+
+                    <span class="people-label">
+                        1 GENERAL TICKET
+                    </span>
+
+
+                    <a
+                        href="checkout.html?ticket=splash-pass"
+                        class="button ticket-buy-button"
+                        data-ticket="splash-pass"
+                        data-ticket-id="splash-pass"
+                        aria-label="Buy Splash Pass"
+                    >
+                        Buy Splash Pass
+                    </a>
+
+                </article>
+
+
+
+                <!-- WAVE VIP -->
+
+                <article
+                    class="full-ticket-card full-vip"
+                    id="wave-vip"
+                    data-ticket-card="wave-vip"
+                >
+
+                    <div class="full-ticket-top">
+
+                        <span class="buy-ticket-label">
+                            WATER SPLASH 2026
+                        </span>
+
+
+                        <span
+                            class="status-badge available"
+                            data-ticket-status="wave-vip"
+                        >
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+
+                    <p class="full-category">
+                        VIP ACCESS
+                    </p>
+
+
+                    <h2>
+                        Wave VIP
+                    </h2>
+
+
+                    <strong class="ticket-price">
+                        Rp3.500.000
+                    </strong>
+
+
+                    <p class="ticket-description">
+                        Exclusive VIP festival privileges
+                        with access to the Wave VIP experience.
+                    </p>
+
+
+                    <h3>
+                        Ticket Includes
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            One VIP festival admission
+                        </li>
+
+                        <li>
+                            VIP Wave Zone access
+                        </li>
+
+                        <li>
+                            Priority festival entry
+                        </li>
+
+                        <li>
+                            Premium viewing area
+                        </li>
+
+                        <li>
+                            VIP lounge access
+                        </li>
+
+                        <li>
+                            Water Splash merchandise
+                        </li>
+
+                    </ul>
+
+
+                    <span class="people-label">
+                        1 VIP TICKET
+                    </span>
+
+
+                    <a
+                        href="checkout.html?ticket=wave-vip"
+                        class="button ticket-buy-button"
+                        data-ticket="wave-vip"
+                        data-ticket-id="wave-vip"
+                        aria-label="Buy Wave VIP"
+                    >
+                        Buy Wave VIP
+                    </a>
+
+                </article>
+
+
+
+                <!-- OCEAN VVIP -->
+
+                <article
+                    class="full-ticket-card full-vvip"
+                    id="ocean-vvip"
+                    data-ticket-card="ocean-vvip"
+                >
+
+                    <div class="full-ticket-top">
+
+                        <span class="buy-ticket-label">
+                            WATER SPLASH 2026
+                        </span>
+
+
+                        <span
+                            class="status-badge available"
+                            data-ticket-status="ocean-vvip"
+                        >
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+
+                    <p class="full-category">
+                        VVIP ACCESS
+                    </p>
+
+
+                    <h2>
+                        Ocean VVIP
+                    </h2>
+
+
+                    <strong class="ticket-price">
+                        Rp5.500.000
+                    </strong>
+
+
+                    <p class="ticket-description">
+                        The most premium Water Splash experience
+                        with exclusive Ocean VVIP privileges.
+                    </p>
+
+
+                    <h3>
+                        Ticket Includes
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            One VVIP festival admission
+                        </li>
+
+                        <li>
+                            Ocean VVIP Lounge access
+                        </li>
+
+                        <li>
+                            Exclusive viewing area
+                        </li>
+
+                        <li>
+                            Priority festival entry
+                        </li>
+
+                        <li>
+                            Private refreshments
+                        </li>
+
+                        <li>
+                            Premium Water Splash merchandise
+                        </li>
+
+                    </ul>
+
+
+                    <span class="people-label">
+                        1 VVIP TICKET
+                    </span>
+
+
+                    <a
+                        href="checkout.html?ticket=ocean-vvip"
+                        class="button ticket-buy-button"
+                        data-ticket="ocean-vvip"
+                        data-ticket-id="ocean-vvip"
+                        aria-label="Buy Ocean VVIP"
+                    >
+                        Buy Ocean VVIP
+                    </a>
+
+                </article>
+
+
+
+                <!-- SPLASH SQUAD -->
+
+                <article
+                    class="full-ticket-card full-squad"
+                    id="splash-squad"
+                    data-ticket-card="splash-squad"
+                >
+
+                    <div class="full-ticket-top">
+
+                        <span class="buy-ticket-label">
+                            WATER SPLASH 2026
+                        </span>
+
+
+                        <span
+                            class="status-badge available"
+                            data-ticket-status="splash-squad"
+                        >
+                            AVAILABLE
+                        </span>
+
+                    </div>
+
+
+                    <p class="full-category">
+                        GROUP GENERAL ACCESS
+                    </p>
+
+
+                    <h2>
+                        Splash Squad
+                    </h2>
+
+
+                    <strong class="ticket-price">
+                        Rp12.000.000
+                    </strong>
+
+
+                    <p class="ticket-description">
+                        Five General Splash Pass tickets
+                        for one group festival experience.
+                    </p>
+
+
+                    <h3>
+                        Ticket Includes
+                    </h3>
+
+
+                    <ul>
+
+                        <li>
+                            Five general festival admissions
+                        </li>
+
+                        <li>
+                            General Splash Zone access
+                        </li>
+
+                        <li>
+                            Main stage access
+                        </li>
+
+                        <li>
+                            Water activity area
+                        </li>
+
+                        <li>
+                            Food and beverage area
+                        </li>
+
+                        <li>
+                            Festival facilities
+                        </li>
+
+                    </ul>
+
+
+                    <span class="people-label">
+                        5 GENERAL TICKETS
+                    </span>
+
+
+                    <a
+                        href="checkout.html?ticket=splash-squad"
+                        class="button ticket-buy-button"
+                        data-ticket="splash-squad"
+                        data-ticket-id="splash-squad"
+                        aria-label="Buy Splash Squad"
+                    >
+                        Buy Splash Squad
+                    </a>
+
+                </article>
+
+            </div>
+
+
+
+            <!-- DISCLAIMER -->
+
+            <p class="roleplay-note">
+                Water Splash is a fictional roleplay event.
+                All tickets, prices, payments, QR codes,
+                and admission details have no real-world value.
+            </p>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <h2>
+            WATER SPLASH
+        </h2>
+
+
+        <p>
+            Summer Water Festival · 15 August 2026
+        </p>
+
+
+        <small>
+            GWK Cultural Park, Bali · Fictional roleplay event.
+        </small>
+
+    </footer>
+
+
+</body>
+
+</html>

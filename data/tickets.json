@@ -1,0 +1,65 @@
+[
+{
+"id":"splash-pass",
+"name":"Splash Pass",
+"price":"Rp1.500.000",
+"status":"early-bird",
+"description":"Your first wave into Water Splash festival.",
+"benefits":[
+"Festival Entry Access",
+"Main Stage Access",
+"Water Splash Zone",
+"Official Water Splash Slayer"
+]
+},
+
+
+{
+"id":"wave-vip",
+"name":"Wave VIP",
+"price":"Rp3.500.000",
+"status":"available",
+"description":"Catch the wave with exclusive privileges.",
+"benefits":[
+"VIP Entrance Access",
+"VIP Viewing Area",
+"VIP Rest Area",
+"VIP Lanyard",
+"Slayer",
+"Water Gun",
+"Water Glasses"
+]
+},
+
+
+{
+"id":"ocean-vvip",
+"name":"Ocean VVIP",
+"price":"Rp5.500.000",
+"status":"available",
+"description":"The ultimate Water Splash experience.",
+"benefits":[
+"VVIP Entrance",
+"Premium Viewing Area",
+"VVIP Lounge",
+"Exclusive Lanyard",
+"Premium Merchandise"
+]
+},
+
+
+{
+"id":"splash-squad",
+"name":"Splash Squad",
+"price":"Rp12.000.000",
+"status":"available",
+"description":"Group package for 5 people.",
+"benefits":[
+"5 Splash Pass Tickets",
+"Group Check-in Lane",
+"5 Slayer",
+"Merchandise Bundle"
+]
+}
+
+]

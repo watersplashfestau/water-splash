@@ -1,0 +1,5860 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+
+:root {
+
+    --blue:
+        #159cff;
+
+    --blue-dark:
+        #0879cd;
+
+    --sky:
+        #58c8ff;
+
+    --lime:
+        #d8ff4f;
+
+    --navy:
+        #063f70;
+
+    --white:
+        #ffffff;
+
+    --soft:
+        #f5fcff;
+
+    --muted:
+        #648096;
+
+    --danger:
+        #ef5d67;
+
+    --shadow:
+        0 24px 55px
+        rgba(5, 74, 122, 0.15);
+
+}
+
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    color: var(--navy);
+
+    background: var(--soft);
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+}
+
+
+
+a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+}
+
+
+
+button,
+input {
+
+    font: inherit;
+
+}
+
+
+
+button {
+
+    border: 0;
+
+    cursor: pointer;
+
+}
+
+
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+
+
+/* WATER EFFECT */
+
+.bubble-layer {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+}
+
+
+
+.floating-bubble {
+
+    position: absolute;
+
+    bottom: -80px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.8);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            rgba(255,255,255,0.95),
+            rgba(255,255,255,0.15) 45%,
+            rgba(70,190,255,0.1)
+        );
+
+    animation:
+        bubbleRise linear forwards;
+
+}
+
+
+
+.water-ripple {
+
+    position: fixed;
+
+    z-index: 9999;
+
+    width: 15px;
+
+    height: 15px;
+
+    border:
+        2px solid
+        rgba(88, 200, 255, 0.85);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%, -50%);
+
+    animation:
+        rippleEffect 0.75s
+        ease-out forwards;
+
+}
+
+
+
+/* HEADER */
+
+.site-header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 1000;
+
+    width: 100%;
+
+    padding:
+        18px 5%;
+
+    transition:
+        0.3s ease;
+
+}
+
+
+
+.site-header.scrolled,
+.inner-header {
+
+    padding-top: 11px;
+
+    padding-bottom: 11px;
+
+    background:
+        rgba(10, 139, 224, 0.9);
+
+    box-shadow:
+        0 12px 35px
+        rgba(3, 66, 109, 0.14);
+
+    backdrop-filter:
+        blur(18px);
+
+}
+
+
+
+.navbar {
+
+    max-width: 1280px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+
+.logo {
+
+    color: var(--white);
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+}
+
+
+
+.nav-menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+
+}
+
+
+
+.nav-menu a {
+
+    color: var(--white);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+
+.nav-button {
+
+    min-height: 48px;
+
+    padding:
+        0 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--navy);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    border-radius: 999px;
+
+    background: var(--lime);
+
+}
+
+
+
+.menu-toggle {
+
+    display: none;
+
+}
+
+
+
+/* BUTTON */
+
+.button {
+
+    min-height: 52px;
+
+    padding:
+        0 29px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    border-radius: 999px;
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+
+
+.button:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+
+.button-lime {
+
+    color: var(--navy);
+
+    background: var(--lime);
+
+}
+
+
+
+.button-blue {
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--sky),
+            var(--blue-dark)
+        );
+
+}
+
+
+
+.button-outline {
+
+    color: var(--white);
+
+    border:
+        2px solid
+        rgba(255,255,255,0.8);
+
+}
+
+
+
+/* HERO */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    padding:
+        145px 7% 180px;
+
+    display: flex;
+
+    align-items: center;
+
+    color: var(--white);
+
+    background:
+        url("../assets/Hero.jpg")
+        center / cover no-repeat;
+
+}
+
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3,61,105,0.88),
+            rgba(8,137,223,0.62),
+            rgba(28,173,242,0.35)
+        );
+
+}
+
+
+
+.hero-glow {
+
+    position: absolute;
+
+    right: 8%;
+
+    top: 25%;
+
+    width: 430px;
+
+    height: 430px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(216,255,79,0.5);
+
+    filter:
+        blur(90px);
+
+}
+
+
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 720px;
+
+}
+
+
+
+.eyebrow,
+.section-label {
+
+    display: inline-flex;
+
+    margin-bottom: 18px;
+
+    padding:
+        8px 15px;
+
+    color: var(--navy);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.85);
+
+}
+
+
+
+.hero h1 {
+
+    margin-bottom: 27px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(82px, 11vw, 150px);
+
+    font-weight: 800;
+
+    line-height: 0.72;
+
+    letter-spacing: -9px;
+
+}
+
+
+
+.hero h1 span {
+
+    display: block;
+
+    margin-left: 42px;
+
+}
+
+
+
+.hero-description {
+
+    max-width: 600px;
+
+    margin-bottom: 30px;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+
+.hero-info {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+.hero-info div {
+
+    min-width: 210px;
+
+    padding:
+        15px 19px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+    border-radius: 19px;
+
+    background:
+        rgba(255,255,255,0.14);
+
+    backdrop-filter:
+        blur(12px);
+
+}
+
+
+
+.hero-info small {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+.hero-info strong {
+
+    font-size: 14px;
+
+}
+
+
+
+.hero-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+}
+
+
+
+.hero-wave {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -3px;
+
+    width: 100%;
+
+    line-height: 0;
+
+}
+
+
+
+.hero-wave svg {
+
+    width: 100%;
+
+    height: 190px;
+
+}
+
+
+
+/* GENERAL */
+
+.section {
+
+    padding:
+        110px 6%;
+
+}
+
+
+
+.section-heading {
+
+    max-width: 750px;
+
+    margin:
+        0 auto 55px;
+
+    text-align: center;
+
+}
+
+
+
+.section-heading h2,
+.countdown-title h2 {
+
+    margin-bottom: 15px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(43px, 6vw, 72px);
+
+    line-height: 0.95;
+
+}
+
+
+
+.section-heading > p:last-child {
+
+    color: var(--muted);
+
+    line-height: 1.8;
+
+}
+
+
+
+/* INFO */
+
+.info-grid {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 26px;
+
+}
+
+
+
+.info-card {
+
+    padding: 35px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background: var(--white);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+
+.info-card > span {
+
+    width: 68px;
+
+    height: 68px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    border-radius: 22px;
+
+    background: var(--lime);
+
+}
+
+
+
+.info-card h3 {
+
+    margin-bottom: 8px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 26px;
+
+}
+
+
+
+.info-card p {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+}
+
+
+
+/* COUNTDOWN */
+
+.countdown-section {
+
+    padding:
+        95px 7%;
+
+    display: grid;
+
+    grid-template-columns:
+        0.9fr 1.1fr;
+
+    align-items: center;
+
+    gap: 60px;
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--blue-dark)
+        );
+
+}
+
+
+
+.countdown-title h2 {
+
+    color: var(--white);
+
+}
+
+
+
+.countdown {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+
+}
+
+
+
+.countdown-box {
+
+    min-height: 140px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.3);
+
+    border-radius: 26px;
+
+    background:
+        rgba(255,255,255,0.14);
+
+}
+
+
+
+.countdown-box strong {
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 50px;
+
+}
+
+
+
+.countdown-box span {
+
+    font-size: 11px;
+
+}
+
+
+
+/* LINEUP */
+
+.lineup-section {
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216,255,79,0.18),
+            transparent 30%
+        ),
+        var(--soft);
+
+}
+
+
+
+.lineup-grid {
+
+    max-width: 1230px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 24px;
+
+}
+
+
+
+.artist-card {
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: var(--white);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+
+.artist-photo {
+
+    position: relative;
+
+    height: 340px;
+
+    overflow: hidden;
+
+}
+
+
+
+.artist-photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+
+}
+
+
+
+.artist-card:hover img {
+
+    transform:
+        scale(1.07);
+
+}
+
+
+
+.artist-photo span {
+
+    position: absolute;
+
+    top: 17px;
+
+    left: 17px;
+
+    padding:
+        7px 12px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.9);
+
+}
+
+
+
+.artist-card h3 {
+
+    padding:
+        22px 15px;
+
+    text-align: center;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 27px;
+
+}
+
+
+
+/* EXPERIENCE */
+
+.experience-section {
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            145deg,
+            #128fe8,
+            #0759a2
+        );
+
+}
+
+
+
+.light-heading h2 {
+
+    color: var(--white);
+
+}
+
+
+
+.experience-grid {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 22px;
+
+}
+
+
+
+.experience-card {
+
+    min-height: 270px;
+
+    padding: 30px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.25);
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.14);
+
+}
+
+
+
+.experience-card > span {
+
+    width: 58px;
+
+    height: 58px;
+
+    margin-bottom: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--navy);
+
+    font-weight: 800;
+
+    border-radius: 19px;
+
+    background: var(--lime);
+
+}
+
+
+
+.experience-card h3 {
+
+    margin-bottom: 12px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 27px;
+
+}
+
+
+
+.experience-card p {
+
+    color:
+        rgba(255,255,255,0.8);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* PREVIEW TICKET */
+
+.ticket-preview-section {
+
+    background: var(--white);
+
+}
+
+
+
+.preview-grid {
+
+    max-width: 1050px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 28px;
+
+}
+
+
+
+.preview-ticket {
+
+    min-height: 400px;
+
+    padding: 40px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    border-radius: 36px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+
+.preview-general {
+
+    background:
+        linear-gradient(
+            145deg,
+            #e2f9ff,
+            #ffffff
+        );
+
+}
+
+
+
+.preview-vip {
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--sky),
+            var(--blue-dark)
+        );
+
+}
+
+
+
+.preview-vvip {
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--lime),
+            #f1ff9e
+        );
+
+}
+
+
+
+.preview-squad {
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            145deg,
+            #29c8c7,
+            #0877bd
+        );
+
+}
+
+
+
+.preview-top,
+.full-ticket-top {
+
+    width: 100%;
+
+    margin-bottom: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+
+.buy-ticket-label {
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+.status-badge {
+
+    padding:
+        8px 14px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    border-radius: 999px;
+
+}
+
+
+
+.status-badge.available {
+
+    color: var(--blue-dark);
+
+    background:
+        rgba(255,255,255,0.9);
+
+}
+
+
+
+.status-badge.sold-out {
+
+    color: var(--white);
+
+    background: var(--danger);
+
+}
+
+
+
+.release-label {
+
+    margin-bottom: 22px;
+
+    padding:
+        7px 13px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    border-radius: 999px;
+
+    background: var(--lime);
+
+}
+
+
+
+.preview-category,
+.full-category {
+
+    margin-bottom: 7px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+.preview-ticket h3 {
+
+    margin-bottom: 7px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 39px;
+
+}
+
+
+
+.preview-ticket > strong {
+
+    margin-bottom: 24px;
+
+    font-size: 25px;
+
+}
+
+
+
+.preview-ticket > p:last-child {
+
+    margin-top: auto;
+
+    line-height: 1.8;
+
+}
+
+
+
+.explore-ticket {
+
+    margin-top: 45px;
+
+    text-align: center;
+
+}
+
+
+
+/* TICKET PAGE */
+
+.ticket-page-hero {
+
+    min-height: 500px;
+
+    padding:
+        155px 20px 80px;
+
+    color: var(--white);
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(216,255,79,0.8),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            var(--sky),
+            var(--blue-dark)
+        );
+
+}
+
+
+
+.ticket-page-hero h1 {
+
+    margin-bottom: 12px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(60px, 9vw, 105px);
+
+    line-height: 0.9;
+
+}
+
+
+
+.ticket-page-section {
+
+    padding:
+        100px 6%;
+
+}
+
+
+
+.full-ticket-grid {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 34px;
+
+}
+
+
+
+.full-ticket-card {
+
+    min-height: 720px;
+
+    padding: 38px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    border-radius: 36px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+
+.full-general {
+
+    background:
+        linear-gradient(
+            145deg,
+            #e2f9ff,
+            #ffffff
+        );
+
+}
+
+
+
+.full-vip {
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--sky),
+            var(--blue-dark)
+        );
+
+}
+
+
+
+.full-vvip {
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--lime),
+            #f1ff9e
+        );
+
+}
+
+
+
+.full-squad {
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            145deg,
+            #29c8c7,
+            #0877bd
+        );
+
+}
+
+
+
+.full-ticket-card h2 {
+
+    margin-bottom: 7px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 45px;
+
+    line-height: 1;
+
+}
+
+
+
+.ticket-price {
+
+    margin-bottom: 20px;
+
+    font-size: 27px;
+
+}
+
+
+
+.ticket-description {
+
+    min-height: 55px;
+
+    margin-bottom: 25px;
+
+    line-height: 1.7;
+
+    opacity: 0.8;
+
+}
+
+
+
+.full-ticket-card h3 {
+
+    margin-bottom: 12px;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.full-ticket-card ul {
+
+    margin-bottom: 30px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    list-style: none;
+
+}
+
+
+
+.full-ticket-card li {
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+
+.full-ticket-card li::before {
+
+    content: "✓";
+
+    margin-right: 9px;
+
+}
+
+
+
+.people-label {
+
+    margin-bottom: 17px;
+
+    padding:
+        7px 13px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.25);
+
+}
+
+
+
+.ticket-buy-button {
+
+    width: 100%;
+
+    margin-top: auto;
+
+    color: var(--navy);
+
+    background: var(--white);
+
+}
+
+
+
+.full-general
+.ticket-buy-button {
+
+    background: var(--lime);
+
+}
+
+
+
+.full-vvip
+.ticket-buy-button {
+
+    color: var(--white);
+
+    background: var(--navy);
+
+}
+
+
+
+.ticket-buy-button:disabled {
+
+    color: var(--white);
+
+    cursor: not-allowed;
+
+    background: #8998a2;
+
+}
+
+
+
+.sold-card {
+
+    opacity: 0.7;
+
+    filter:
+        grayscale(0.45);
+
+}
+
+
+
+.roleplay-note {
+
+    max-width: 650px;
+
+    margin:
+        40px auto 0;
+
+    color: var(--muted);
+
+    text-align: center;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* CHECKOUT */
+
+.checkout-page {
+
+    min-height: 100vh;
+
+    padding:
+        145px 6% 100px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dcf7ff,
+            var(--soft)
+        );
+
+}
+
+
+
+.checkout-heading {
+
+    max-width: 700px;
+
+    margin:
+        0 auto 45px;
+
+    text-align: center;
+
+}
+
+
+
+.checkout-heading h1 {
+
+    margin-bottom: 10px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(52px, 7vw, 80px);
+
+}
+
+
+
+.checkout-heading > p:last-child {
+
+    color: var(--muted);
+
+}
+
+
+
+.checkout-layout {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.9fr;
+
+    align-items: start;
+
+    gap: 30px;
+
+}
+
+
+
+.checkout-form,
+.order-summary {
+
+    padding: 36px;
+
+    border-radius: 32px;
+
+    background: var(--white);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+
+.checkout-form h2 {
+
+    margin-bottom: 24px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 28px;
+
+}
+
+
+
+.checkout-form label:not(.payment-choice):not(.agreement) {
+
+    margin-bottom: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+
+.checkout-form label > span {
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+
+.checkout-form input[type="text"],
+.checkout-form input[type="email"],
+.checkout-form input[type="tel"] {
+
+    width: 100%;
+
+    height: 52px;
+
+    padding:
+        0 16px;
+
+    outline: none;
+
+    border:
+        1px solid #cce6f1;
+
+    border-radius: 15px;
+
+}
+
+
+
+.error-message {
+
+    min-height: 15px;
+
+    color: var(--danger);
+
+    font-size: 10px;
+
+}
+
+
+
+.payment-title {
+
+    margin-top: 35px;
+
+}
+
+
+
+.payment-choice {
+
+    margin-bottom: 10px;
+
+    padding: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border:
+        1px solid #d3e9f2;
+
+    border-radius: 16px;
+
+}
+
+
+
+.agreement {
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+
+.checkout-form-message {
+
+    min-height: 18px;
+
+    margin-top: 12px;
+
+    color: var(--danger);
+
+    font-size: 11px;
+
+}
+
+
+
+.checkout-button {
+
+    width: 100%;
+
+    margin-top: 20px;
+
+}
+
+
+
+.order-summary {
+
+    position: sticky;
+
+    top: 95px;
+
+}
+
+
+
+.summary-heading {
+
+    margin-bottom: 18px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+.order-summary h2 {
+
+    margin-bottom: 7px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 38px;
+
+}
+
+
+
+.order-summary > p:nth-of-type(2) {
+
+    margin-bottom: 18px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+
+.summary-ticket-price {
+
+    color: var(--blue-dark);
+
+    font-size: 24px;
+
+}
+
+
+
+.quantity-row {
+
+    margin:
+        28px 0;
+
+    padding:
+        22px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-top:
+        1px solid #dceef5;
+
+    border-bottom:
+        1px solid #dceef5;
+
+}
+
+
+
+.quantity-control {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+
+.quantity-control button {
+
+    width: 38px;
+
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #e3f8ff;
+
+}
+
+
+
+.fee-summary > div {
+
+    margin-bottom: 14px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) auto;
+
+    gap: 20px;
+
+    align-items: center;
+
+    font-size: 12px;
+
+}
+
+
+
+.fee-summary span {
+
+    color: var(--muted);
+
+}
+
+
+
+.fee-summary strong {
+
+    min-width: 110px;
+
+    text-align: right;
+
+    white-space: nowrap;
+
+}
+
+
+
+.fee-summary hr {
+
+    margin:
+        20px 0;
+
+    border: 0;
+
+    border-top:
+        1px dashed #aacbd9;
+
+}
+
+
+
+.fee-summary
+.total-row {
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+}
+
+
+
+.total-row strong {
+
+    color: var(--blue-dark);
+
+    font-size: 18px;
+
+}
+
+
+
+/* CONFIRMATION */
+
+.confirmation-page {
+
+    min-height: 100vh;
+
+    padding:
+        110px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(216,255,79,0.45),
+            transparent 25%
+        ),
+        linear-gradient(
+            145deg,
+            #dcf7ff,
+            var(--soft)
+        );
+
+}
+
+
+
+.confirmation-icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    margin:
+        0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    border-radius: 50%;
+
+    background: var(--lime);
+
+}
+
+
+
+.confirmation-page h1 {
+
+    margin-bottom: 12px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(52px, 7vw, 82px);
+
+}
+
+
+
+.confirmation-description {
+
+    color: var(--muted);
+
+}
+
+
+
+.confirmation-card {
+
+    max-width: 850px;
+
+    margin:
+        45px auto 0;
+
+    padding: 35px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    text-align: left;
+
+    border-radius: 30px;
+
+    background: var(--white);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+
+.confirmation-card span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+}
+
+
+
+.confirmation-card strong {
+
+    display: block;
+
+    overflow-wrap: anywhere;
+
+    font-size: 13px;
+
+}
+
+
+
+.confirmation-actions {
+
+    margin-top: 35px;
+
+}
+
+
+
+/* FOOTER */
+
+.footer {
+
+    padding:
+        65px 6%;
+
+    color: var(--white);
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--navy),
+            #042d52
+        );
+
+}
+
+
+
+.footer h2 {
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 40px;
+
+}
+
+
+
+.footer p {
+
+    margin-bottom: 10px;
+
+    font-size: 12px;
+
+}
+
+
+
+.footer small {
+
+    opacity: 0.6;
+
+}
+
+
+
+/* ANIMATION */
+
+@keyframes bubbleRise {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(0)
+            scale(0.6);
+
+    }
+
+    15% {
+
+        opacity: 0.65;
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            translateY(-120vh)
+            translateX(30px)
+            scale(1.1);
+
+    }
+
+}
+
+
+
+@keyframes rippleEffect {
+
+    from {
+
+        opacity: 0.85;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0.2);
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(7);
+
+    }
+
+}
+
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 900px) {
+
+    .countdown-section {
+
+        grid-template-columns:
+            1fr;
+
+        text-align: center;
+
+    }
+
+
+    .lineup-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .experience-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .checkout-layout {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .order-summary {
+
+        position: static;
+
+    }
+
+}
+
+
+
+@media screen and (max-width: 700px) {
+
+    .menu-toggle {
+
+        width: 45px;
+
+        height: 45px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        border-radius: 50%;
+
+        background:
+            rgba(255,255,255,0.2);
+
+    }
+
+
+    .menu-toggle span {
+
+        width: 21px;
+
+        height: 2px;
+
+        background: var(--white);
+
+    }
+
+
+    .nav-menu {
+
+        position: fixed;
+
+        top: 75px;
+
+        left: 5%;
+
+        right: 5%;
+
+        display: none;
+
+        padding: 18px;
+
+        flex-direction: column;
+
+        border-radius: 22px;
+
+        background:
+            rgba(8,126,208,0.95);
+
+    }
+
+
+    .nav-menu.active {
+
+        display: flex;
+
+    }
+
+
+    .nav-button {
+
+        display: none;
+
+    }
+
+
+    .info-grid,
+    .preview-grid,
+    .full-ticket-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .confirmation-card {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+}
+
+
+
+@media screen and (max-width: 520px) {
+
+    .hero {
+
+        padding:
+            130px 20px 160px;
+
+        text-align: center;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 70px;
+
+        letter-spacing: -5px;
+
+    }
+
+
+    .hero h1 span {
+
+        margin-left: 0;
+
+    }
+
+
+    .hero-info,
+    .hero-actions {
+
+        justify-content: center;
+
+    }
+
+
+    .hero-info {
+
+        flex-direction: column;
+
+    }
+
+
+    .hero-info div,
+    .hero-actions .button {
+
+        width: 100%;
+
+    }
+
+
+    .section {
+
+        padding:
+            80px 20px;
+
+    }
+
+
+    .section-heading h2,
+    .countdown-title h2 {
+
+        font-size: 42px;
+
+    }
+
+
+    .countdown-section {
+
+        padding:
+            80px 20px;
+
+    }
+
+
+    .countdown {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .lineup-grid,
+    .experience-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .artist-photo {
+
+        height: 420px;
+
+    }
+
+
+    .full-ticket-card {
+
+        min-height: 0;
+
+        padding: 30px;
+
+    }
+
+
+    .checkout-page {
+
+        padding:
+            125px 18px 75px;
+
+    }
+
+
+    .checkout-form,
+    .order-summary {
+
+        padding: 25px;
+
+    }
+
+
+    .confirmation-card {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+}
+
+/* =========================================================
+   TAMBAHAN E-TICKET CONFIRMATION
+   JANGAN HAPUS CSS SEBELUMNYA
+   TEMPEL BLOK INI PALING BAWAH STYLE.CSS
+========================================================= */
+
+
+/* Agar halaman confirmation tetap menggunakan
+   warna dan efek air dari website utama */
+
+.confirmation-body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    color: var(--navy);
+
+    background: var(--soft);
+
+}
+
+
+/* =========================================================
+   HEADER CONFIRMATION
+========================================================= */
+
+.confirmation-header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 1000;
+
+    width: 100%;
+
+    padding:
+        11px 5%;
+
+    background:
+        rgba(10, 139, 224, 0.9);
+
+    box-shadow:
+        0 12px 35px
+        rgba(3, 66, 109, 0.14);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+}
+
+
+.confirmation-navbar {
+
+    max-width: 1280px;
+
+    min-height: 56px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+}
+
+
+.confirmation-logo {
+
+    color: var(--white);
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+}
+
+
+.confirmation-home-link {
+
+    min-height: 48px;
+
+    padding:
+        0 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--navy);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    border-radius: 999px;
+
+    background: var(--lime);
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+
+.confirmation-home-link:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+/* =========================================================
+   CONFIRMATION HEADING
+========================================================= */
+
+.confirmation-body
+.confirmation-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        135px 20px 90px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(216, 255, 79, 0.45),
+            transparent 25%
+        ),
+        linear-gradient(
+            145deg,
+            #dcf7ff,
+            var(--soft)
+        );
+
+}
+
+
+.confirmation-heading {
+
+    max-width: 850px;
+
+    margin:
+        0 auto 40px;
+
+    text-align: center;
+
+}
+
+
+.confirmation-label {
+
+    display: inline-flex;
+
+    margin-bottom: 17px;
+
+    padding:
+        8px 15px;
+
+    color: var(--navy);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+}
+
+
+.confirmation-heading h1 {
+
+    margin-bottom: 12px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(
+            52px,
+            7vw,
+            82px
+        );
+
+    line-height: 0.95;
+
+}
+
+
+.confirmation-heading
+.confirmation-description {
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =========================================================
+   ORDER INFORMATION
+   Dibuat spesifik untuk confirmation agar tidak
+   merusak order-summary halaman checkout
+========================================================= */
+
+.confirmation-body
+.order-summary {
+
+    position: static;
+
+    top: auto;
+
+    max-width: 1180px;
+
+    margin:
+        0 auto 48px;
+
+    padding: 25px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            5,
+            minmax(0, 1fr)
+        );
+
+    gap: 0;
+
+    text-align: left;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255, 255, 255, 0.90);
+
+    box-shadow:
+        0 20px 45px
+        rgba(5, 74, 122, 0.12);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+}
+
+
+.confirmation-body
+.order-summary-item {
+
+    min-width: 0;
+
+    padding:
+        3px 18px;
+
+    border-right:
+        1px solid
+        rgba(6, 63, 112, 0.10);
+
+}
+
+
+.confirmation-body
+.order-summary-item:last-child {
+
+    border-right: 0;
+
+}
+
+
+.confirmation-body
+.order-summary-item span {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+}
+
+
+.confirmation-body
+.order-summary-item strong {
+
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* =========================================================
+   TICKET AREA
+========================================================= */
+
+.ticket-area {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    max-width: 1180px;
+
+    margin: auto;
+
+}
+
+
+.ticket-area-heading {
+
+    margin-bottom: 25px;
+
+    text-align: center;
+
+}
+
+
+.ticket-area-heading p {
+
+    margin-bottom: 7px;
+
+    color: var(--blue-dark);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.ticket-area-heading h2 {
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(
+            38px,
+            5vw,
+            55px
+        );
+
+    line-height: 1;
+
+}
+
+
+.ticket-list {
+
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+
+/* =========================================================
+   FESTIVAL E-TICKET
+========================================================= */
+
+.festival-ticket {
+
+    --ticket-accent:
+        #10afc4;
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 255px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        190px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    text-align: left;
+
+    border:
+        1px solid
+        rgba(159, 187, 210, 0.75);
+
+    border-radius: 28px;
+
+    background:
+        rgba(255, 255, 255, 0.92);
+
+    box-shadow:
+        0 24px 55px
+        rgba(5, 74, 122, 0.16);
+
+}
+
+
+/* Efek hologram tetap menggunakan warna website */
+
+.festival-ticket::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background:
+        linear-gradient(
+            112deg,
+            rgba(255, 125, 205, 0.13) 0%,
+            rgba(255, 255, 255, 0.35) 17%,
+            rgba(88, 200, 255, 0.22) 33%,
+            rgba(255, 255, 255, 0.18) 46%,
+            rgba(216, 255, 79, 0.22) 60%,
+            rgba(140, 145, 255, 0.16) 77%,
+            rgba(255, 255, 255, 0.23) 100%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.festival-ticket::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: -35%;
+
+    z-index: 0;
+
+    opacity: 0.42;
+
+    background:
+        repeating-linear-gradient(
+            120deg,
+            transparent 0 17px,
+            rgba(255, 255, 255, 0.34) 17px 19px,
+            transparent 19px 35px
+        );
+
+    animation:
+        festivalHologramMove
+        8s linear infinite;
+
+    pointer-events: none;
+
+}
+
+
+.festival-ticket-main,
+.festival-ticket-stub {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   MAIN TICKET
+========================================================= */
+
+.festival-ticket-main {
+
+    min-width: 0;
+
+    padding:
+        29px 33px;
+
+    display: grid;
+
+    grid-template-columns:
+        225px
+        minmax(0, 1fr);
+
+    align-items: center;
+
+    gap: 34px;
+
+}
+
+
+.festival-ticket-brand {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+}
+
+
+.festival-ticket-logo {
+
+    width: 190px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+
+}
+
+
+.festival-text-logo {
+
+    color:
+        var(--ticket-accent);
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    line-height: 0.70;
+
+    letter-spacing: -3px;
+
+}
+
+
+.festival-text-logo strong {
+
+    display: block;
+
+}
+
+
+.festival-ticket-subtitle {
+
+    color:
+        var(--ticket-accent);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.7px;
+
+}
+
+
+.festival-ticket-content {
+
+    min-width: 0;
+
+}
+
+
+.festival-ticket-kicker {
+
+    margin-bottom: 7px;
+
+    color:
+        var(--ticket-accent);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.festival-ticket-title {
+
+    margin-bottom: 22px;
+
+    color:
+        var(--ticket-accent);
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(
+            40px,
+            5vw,
+            59px
+        );
+
+    font-weight: 800;
+
+    line-height: 0.90;
+
+    letter-spacing: -2px;
+
+    text-transform: uppercase;
+
+}
+
+
+.festival-ticket-information {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap:
+        17px 28px;
+
+}
+
+
+.festival-information-item {
+
+    min-width: 0;
+
+}
+
+
+.festival-information-item span {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+
+}
+
+
+.festival-information-item strong {
+
+    display: block;
+
+    color: var(--navy);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.45;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* =========================================================
+   PORTRAIT QR STUB
+========================================================= */
+
+.festival-ticket-stub {
+
+    position: relative;
+
+    padding:
+        18px 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-left:
+        2px dashed
+        rgba(6, 63, 112, 0.23);
+
+    background:
+        rgba(255, 255, 255, 0.28);
+
+}
+
+
+.festival-ticket-stub::before,
+.festival-ticket-stub::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -16px;
+
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: #e9f8ff;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(159, 187, 210, 0.65);
+
+}
+
+
+.festival-ticket-stub::before {
+
+    top: -15px;
+
+}
+
+
+.festival-ticket-stub::after {
+
+    bottom: -15px;
+
+}
+
+
+.festival-code-card {
+
+    width: 148px;
+
+    min-height: 220px;
+
+    padding:
+        12px 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    border:
+        1px solid
+        rgba(6, 63, 112, 0.11);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    box-shadow:
+        0 10px 23px
+        rgba(5, 74, 122, 0.10);
+
+}
+
+
+.festival-qr-code {
+
+    width: 128px;
+
+    min-height: 128px;
+
+    padding: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 11px;
+
+    background: var(--white);
+
+}
+
+
+.festival-qr-code img,
+.festival-qr-code canvas {
+
+    width: 118px !important;
+
+    height: 118px !important;
+
+    max-width: 100%;
+
+    display: block;
+
+}
+
+
+.festival-qr-code > span {
+
+    color: var(--navy);
+
+    font-weight: 800;
+
+}
+
+
+.festival-scan-label {
+
+    color:
+        var(--ticket-accent);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+}
+
+
+.festival-ticket-code {
+
+    max-width: 120px;
+
+    color: var(--muted);
+
+    font-size: 7px;
+
+    line-height: 1.4;
+
+    text-align: center;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+.festival-ticket-sequence {
+
+    color:
+        var(--ticket-accent);
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+}
+
+
+.festival-qr-fallback {
+
+    width: 118px;
+
+    height: 118px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--navy);
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    border:
+        2px dashed
+        var(--ticket-accent);
+
+}
+
+
+/* =========================================================
+   WARNA JENIS TIKET
+========================================================= */
+
+.ticket-theme-splash {
+
+    --ticket-accent:
+        #10afc4;
+
+}
+
+
+.ticket-theme-vip {
+
+    --ticket-accent:
+        var(--blue-dark);
+
+}
+
+
+.ticket-theme-vvip {
+
+    --ticket-accent:
+        #abc900;
+
+}
+
+
+.ticket-theme-squad {
+
+    --ticket-accent:
+        #08a8b7;
+
+}
+
+
+/* =========================================================
+   CONFIRMATION BUTTONS
+========================================================= */
+
+.confirmation-actions {
+
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: 42px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+}
+
+
+.confirmation-button {
+
+    min-height: 52px;
+
+    padding:
+        0 29px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+
+}
+
+
+.confirmation-button:hover {
+
+    transform:
+        translateY(-4px);
+
+}
+
+
+.confirmation-button-primary {
+
+    color: var(--white);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--sky),
+            var(--blue-dark)
+        );
+
+}
+
+
+.confirmation-button-outline {
+
+    color: var(--blue-dark);
+
+    border:
+        2px solid
+        var(--blue);
+
+    background: var(--white);
+
+}
+
+
+.confirmation-button:disabled {
+
+    cursor: wait;
+
+    opacity: 0.60;
+
+    transform: none;
+
+}
+
+
+.confirmation-disclaimer {
+
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 680px;
+
+    margin:
+        18px auto 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    line-height: 1.7;
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   ERROR BOX
+========================================================= */
+
+.confirmation-error {
+
+    position: relative;
+
+    z-index: 10;
+
+    max-width: 650px;
+
+    margin:
+        35px auto;
+
+    padding: 38px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background: var(--white);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.confirmation-error h2 {
+
+    margin-bottom: 11px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size: 32px;
+
+}
+
+
+.confirmation-error p {
+
+    margin-bottom: 25px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================================
+   HOLOGRAM ANIMATION
+========================================================= */
+
+@keyframes festivalHologramMove {
+
+    0% {
+
+        transform:
+            translateX(-8%);
+
+    }
+
+    50% {
+
+        transform:
+            translateX(8%);
+
+    }
+
+    100% {
+
+        transform:
+            translateX(-8%);
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE CONFIRMATION
+========================================================= */
+
+@media screen and (max-width: 1000px) {
+
+    .confirmation-body
+    .order-summary {
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(0, 1fr)
+            );
+
+        gap:
+            20px 0;
+
+    }
+
+
+    .confirmation-body
+    .order-summary-item {
+
+        border-right: 0;
+
+    }
+
+
+    .festival-ticket-main {
+
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+
+    }
+
+}
+
+
+@media screen and (max-width: 760px) {
+
+    .confirmation-navbar {
+
+        width:
+            calc(100% - 28px);
+
+    }
+
+
+    .confirmation-logo {
+
+        font-size: 21px;
+
+    }
+
+
+    .confirmation-home-link {
+
+        min-height: 42px;
+
+        padding:
+            0 17px;
+
+        font-size: 11px;
+
+    }
+
+
+    .confirmation-body
+    .confirmation-page {
+
+        padding:
+            120px 14px 70px;
+
+    }
+
+
+    .confirmation-heading h1 {
+
+        font-size: 44px;
+
+    }
+
+
+    .confirmation-body
+    .order-summary {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        padding: 21px;
+
+    }
+
+
+    .festival-ticket {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .festival-ticket-main {
+
+        padding:
+            26px 22px;
+
+    }
+
+
+    .festival-ticket-stub {
+
+        border-left: 0;
+
+        border-top:
+            2px dashed
+            rgba(6, 63, 112, 0.23);
+
+    }
+
+
+    .festival-ticket-stub::before,
+    .festival-ticket-stub::after {
+
+        top: -16px;
+
+        bottom: auto;
+
+    }
+
+
+    .festival-ticket-stub::before {
+
+        left: -15px;
+
+    }
+
+
+    .festival-ticket-stub::after {
+
+        left: auto;
+
+        right: -15px;
+
+    }
+
+
+    .festival-code-card {
+
+        width: 170px;
+
+    }
+
+}
+
+
+@media screen and (max-width: 520px) {
+
+    .confirmation-body
+    .order-summary {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .confirmation-body
+    .order-summary-item {
+
+        padding:
+            4px 5px 15px;
+
+        border-bottom:
+            1px solid
+            rgba(6, 63, 112, 0.08);
+
+    }
+
+
+    .confirmation-body
+    .order-summary-item:last-child {
+
+        padding-bottom: 4px;
+
+        border-bottom: 0;
+
+    }
+
+
+    .festival-ticket-information {
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+    }
+
+
+    .festival-ticket-title {
+
+        font-size: 39px;
+
+    }
+
+
+    .festival-ticket-logo {
+
+        width: 165px;
+
+    }
+
+
+    .confirmation-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .confirmation-button {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =========================================================
+   PRINT E-TICKET
+========================================================= */
+
+@media print {
+
+    @page {
+
+        margin: 12mm;
+
+    }
+
+
+    .confirmation-body {
+
+        background:
+            #ffffff !important;
+
+        print-color-adjust:
+            exact;
+
+        -webkit-print-color-adjust:
+            exact;
+
+    }
+
+
+    .confirmation-header,
+    .confirmation-heading,
+    .confirmation-body
+    .order-summary,
+    .ticket-area-heading,
+    .confirmation-actions,
+    .confirmation-disclaimer,
+    .confirmation-error,
+    .confirmation-body
+    .bubble-layer {
+
+        display: none !important;
+
+    }
+
+
+    .confirmation-body
+    .confirmation-page {
+
+        padding: 0;
+
+        background:
+            #ffffff !important;
+
+    }
+
+
+    .festival-ticket {
+
+        break-inside: avoid;
+
+        page-break-inside: avoid;
+
+        box-shadow: none;
+
+        print-color-adjust:
+            exact;
+
+        -webkit-print-color-adjust:
+            exact;
+
+    }
+
+
+    .festival-ticket::after {
+
+        animation: none;
+
+    }
+
+}/* =========================================================
+   WHITE E-TICKET + EMAIL CONFIRMATION
+   TEMPEL PALING BAWAH STYLE.CSS
+========================================================= */
+
+
+/* EMAIL CONFIRMATION */
+
+.email-confirmation-box {
+
+    max-width: 600px;
+
+    margin:
+        24px auto 0;
+
+    padding:
+        17px 22px;
+
+    border:
+        1px solid
+        rgba(6, 63, 112, 0.12);
+
+    border-radius: 18px;
+
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    box-shadow:
+        0 12px 28px
+        rgba(5, 74, 122, 0.08);
+
+    backdrop-filter:
+        blur(10px);
+
+}
+
+
+.email-confirmation-label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--blue-dark);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+
+}
+
+
+.email-confirmation-box p {
+
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.email-confirmation-box strong {
+
+    color: var(--navy);
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* TIKET PUTIH BERSIH */
+
+.confirmation-body
+.festival-ticket {
+
+    background:
+        #ffffff;
+
+}
+
+
+/* HAPUS HOLOGRAM WARNA-WARNI */
+
+.confirmation-body
+.festival-ticket::before {
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(88, 200, 255, 0.05),
+            rgba(255, 255, 255, 0.95) 35%,
+            rgba(216, 255, 79, 0.05) 70%,
+            rgba(255, 255, 255, 0.95)
+        );
+
+}
+
+
+/* HAPUS GARIS HOLOGRAM BERGERAK */
+
+.confirmation-body
+.festival-ticket::after {
+
+    display: none;
+
+}
+
+
+/* STUB QR JUGA PUTIH */
+
+.confirmation-body
+.festival-ticket-stub {
+
+    background:
+        #ffffff;
+
+}
+
+
+.confirmation-body
+.festival-code-card {
+
+    background:
+        #ffffff;
+
+}
+
+
+/* PRINT */
+
+@media print {
+
+    .email-confirmation-box {
+
+        display: none !important;
+
+    }
+
+}
+
+/* =========================================================
+   WATER SPLASH EXPERIENCE PAGE
+   TAMBAHAN SAJA — JANGAN HAPUS CSS SEBELUMNYA
+========================================================= */
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.ws-exp-body {
+
+    min-height: 100vh;
+
+    color: var(--navy);
+
+    background: var(--soft);
+
+}
+
+
+.ws-exp-body
+.ws-exp-active-link {
+
+    color: var(--lime);
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ws-exp-hero {
+
+    --experience-hero-image:
+        url("../assets/Hero.jpg");
+
+    position: relative;
+
+    min-height: 94vh;
+
+    overflow: hidden;
+
+    padding:
+        150px 7% 120px;
+
+    display: flex;
+
+    align-items: center;
+
+    color: var(--white);
+
+    background:
+        var(--experience-hero-image)
+        center / cover
+        no-repeat;
+
+}
+
+
+.ws-exp-hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 53, 94, 0.94) 0%,
+            rgba(5, 91, 151, 0.78) 42%,
+            rgba(11, 146, 220, 0.43) 72%,
+            rgba(11, 146, 220, 0.26) 100%
+        );
+
+}
+
+
+.ws-exp-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: -1px;
+
+    height: 120px;
+
+    background:
+        linear-gradient(
+            to top,
+            var(--soft),
+            transparent
+        );
+
+}
+
+
+.ws-exp-hero-glow {
+
+    position: absolute;
+
+    top: 18%;
+
+    right: 9%;
+
+    width: 420px;
+
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(216, 255, 79, 0.44);
+
+    filter:
+        blur(100px);
+
+}
+
+
+.ws-exp-hero-content {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(
+        760px,
+        100%
+    );
+
+}
+
+
+.ws-exp-eyebrow {
+
+    width: max-content;
+
+    margin-bottom: 22px;
+
+    padding:
+        8px 15px;
+
+    color: var(--navy);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.88);
+
+}
+
+
+.ws-exp-hero h1 {
+
+    margin-bottom: 28px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(
+            70px,
+            10vw,
+            138px
+        );
+
+    font-weight: 800;
+
+    line-height: 0.73;
+
+    letter-spacing: -8px;
+
+}
+
+
+.ws-exp-hero h1 span {
+
+    display: block;
+
+    margin-left: 55px;
+
+    color: var(--lime);
+
+}
+
+
+.ws-exp-hero-description {
+
+    max-width: 620px;
+
+    margin-bottom: 30px;
+
+    color:
+        rgba(255, 255, 255, 0.88);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+}
+
+
+.ws-exp-scroll-label {
+
+    position: absolute;
+
+    right: 5%;
+
+    bottom: 100px;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    transform:
+        rotate(90deg);
+
+    transform-origin:
+        right bottom;
+
+}
+
+
+.ws-exp-scroll-label span {
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.ws-exp-scroll-label div {
+
+    width: 55px;
+
+    height: 1px;
+
+    background:
+        rgba(255, 255, 255, 0.65);
+
+}
+
+
+/* =========================================================
+   CATEGORY NAVIGATION
+========================================================= */
+
+.ws-exp-category-nav {
+
+    position: sticky;
+
+    top: 69px;
+
+    z-index: 50;
+
+    padding:
+        15px 20px;
+
+    border-bottom:
+        1px solid
+        rgba(6, 63, 112, 0.09);
+
+    background:
+        rgba(245, 252, 255, 0.91);
+
+    box-shadow:
+        0 12px 28px
+        rgba(5, 74, 122, 0.08);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+}
+
+
+.ws-exp-category-inner {
+
+    max-width: 1180px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+}
+
+
+.ws-exp-category-inner::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+.ws-exp-category-link {
+
+    flex: 0 0 auto;
+
+    padding:
+        10px 17px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.80);
+
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        transform 0.25s ease;
+
+}
+
+
+.ws-exp-category-link:hover {
+
+    color: var(--blue-dark);
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.ws-exp-category-link.active {
+
+    color: var(--navy);
+
+    background: var(--lime);
+
+}
+
+
+/* =========================================================
+   EXPERIENCE CONTENT
+========================================================= */
+
+.ws-exp-content {
+
+    position: relative;
+
+    z-index: 10;
+
+}
+
+
+.ws-exp-sections {
+
+    width: 100%;
+
+}
+
+
+/* =========================================================
+   EXPERIENCE SECTION
+========================================================= */
+
+.ws-exp-section {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        120px 6%;
+
+}
+
+
+.ws-exp-section-inner {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(330px, 0.8fr)
+        minmax(0, 1.2fr);
+
+    align-items: center;
+
+    gap: 80px;
+
+}
+
+
+.ws-exp-section-reverse
+.ws-exp-section-inner {
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(330px, 0.8fr);
+
+}
+
+
+.ws-exp-section-reverse
+.ws-exp-section-copy {
+
+    order: 2;
+
+}
+
+
+.ws-exp-section-reverse
+.ws-exp-gallery {
+
+    order: 1;
+
+}
+
+
+.ws-exp-section-copy {
+
+    position: relative;
+
+}
+
+
+.ws-exp-section-eyebrow {
+
+    margin-bottom: 18px;
+
+    color: var(--blue-dark);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2.2px;
+
+}
+
+
+.ws-exp-section-copy h2 {
+
+    margin-bottom: 25px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(
+            54px,
+            7vw,
+            92px
+        );
+
+    font-weight: 800;
+
+    line-height: 0.78;
+
+    letter-spacing: -5px;
+
+}
+
+
+.ws-exp-section-copy h2 span {
+
+    display: block;
+
+    margin-left: 42px;
+
+    color: var(--blue-dark);
+
+}
+
+
+.ws-exp-section-description {
+
+    max-width: 530px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+}
+
+
+.ws-exp-item-list {
+
+    margin-top: 28px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+}
+
+
+.ws-exp-item-list span {
+
+    padding:
+        9px 13px;
+
+    color: var(--navy);
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    border:
+        1px solid
+        rgba(6, 63, 112, 0.11);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.77);
+
+}
+
+
+/* =========================================================
+   EDITORIAL GALLERY
+========================================================= */
+
+.ws-exp-gallery {
+
+    min-width: 0;
+
+    min-height: 600px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.15fr 0.85fr;
+
+    grid-template-rows:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+
+}
+
+
+.ws-exp-gallery-image {
+
+    position: relative;
+
+    min-height: 250px;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--sky),
+            var(--blue-dark)
+        );
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.ws-exp-gallery-image-1 {
+
+    grid-row:
+        1 / 3;
+
+}
+
+
+.ws-exp-gallery-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.65s ease;
+
+}
+
+
+.ws-exp-gallery-image:hover img {
+
+    transform:
+        scale(1.06);
+
+}
+
+
+.ws-exp-image-placeholder {
+
+    background:
+        radial-gradient(
+            circle at 75% 20%,
+            rgba(216, 255, 79, 0.62),
+            transparent 24%
+        ),
+        linear-gradient(
+            145deg,
+            var(--sky),
+            var(--blue-dark)
+        );
+
+}
+
+
+.ws-exp-image-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(3, 47, 84, 0.68),
+            transparent 55%
+        );
+
+}
+
+
+.ws-exp-gallery-image figcaption {
+
+    position: absolute;
+
+    left: 22px;
+
+    right: 22px;
+
+    bottom: 20px;
+
+    z-index: 3;
+
+    color: var(--white);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+.ws-exp-theme-light {
+
+    background:
+        radial-gradient(
+            circle at 12% 50%,
+            rgba(88, 200, 255, 0.13),
+            transparent 27%
+        ),
+        var(--soft);
+
+}
+
+
+/* =========================================================
+   AQUA THEME
+========================================================= */
+
+.ws-exp-theme-aqua {
+
+    background:
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(216, 255, 79, 0.25),
+            transparent 25%
+        ),
+        linear-gradient(
+            145deg,
+            #dffaff,
+            #ebfdff
+        );
+
+}
+
+
+/* =========================================================
+   NAVY THEME
+========================================================= */
+
+.ws-exp-theme-navy {
+
+    color: var(--white);
+
+    background:
+        radial-gradient(
+            circle at 12% 22%,
+            rgba(88, 200, 255, 0.32),
+            transparent 28%
+        ),
+        linear-gradient(
+            145deg,
+            var(--navy),
+            #032b50
+        );
+
+}
+
+
+.ws-exp-theme-navy
+.ws-exp-section-eyebrow {
+
+    color: var(--lime);
+
+}
+
+
+.ws-exp-theme-navy
+.ws-exp-section-copy h2 span {
+
+    color: var(--sky);
+
+}
+
+
+.ws-exp-theme-navy
+.ws-exp-section-description {
+
+    color:
+        rgba(255, 255, 255, 0.75);
+
+}
+
+
+.ws-exp-theme-navy
+.ws-exp-item-list span {
+
+    color: var(--white);
+
+    border-color:
+        rgba(255, 255, 255, 0.20);
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+}
+
+
+/* =========================================================
+   LIME THEME
+========================================================= */
+
+.ws-exp-theme-lime {
+
+    background:
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(88, 200, 255, 0.25),
+            transparent 25%
+        ),
+        linear-gradient(
+            145deg,
+            var(--lime),
+            #efffa5
+        );
+
+}
+
+
+.ws-exp-theme-lime
+.ws-exp-section-eyebrow {
+
+    color: var(--navy);
+
+}
+
+
+.ws-exp-theme-lime
+.ws-exp-section-copy h2 span {
+
+    color: var(--blue-dark);
+
+}
+
+
+/* =========================================================
+   REVEAL EFFECT
+========================================================= */
+
+.ws-exp-reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(55px);
+
+    transition:
+        opacity 0.85s ease,
+        transform 0.85s ease;
+
+}
+
+
+.ws-exp-reveal.ws-exp-visible {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+}
+
+
+/* =========================================================
+   TICKET CTA
+========================================================= */
+
+.ws-exp-ticket-cta {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        125px 20px;
+
+    color: var(--white);
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            var(--blue),
+            var(--blue-dark)
+        );
+
+}
+
+
+.ws-exp-ticket-cta-glow {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: 520px;
+
+    height: 520px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(216, 255, 79, 0.40);
+
+    filter:
+        blur(120px);
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+
+.ws-exp-ticket-cta-content {
+
+    position: relative;
+
+    z-index: 5;
+
+    max-width: 800px;
+
+    margin: auto;
+
+}
+
+
+.ws-exp-ticket-cta-content > p {
+
+    margin-bottom: 10px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+.ws-exp-ticket-cta h2 {
+
+    margin-bottom: 12px;
+
+    font-family:
+        "Baloo 2",
+        sans-serif;
+
+    font-size:
+        clamp(
+            52px,
+            8vw,
+            92px
+        );
+
+    line-height: 0.9;
+
+}
+
+
+.ws-exp-ticket-cta-content > span {
+
+    display: block;
+
+    margin-bottom: 27px;
+
+    color:
+        rgba(255, 255, 255, 0.79);
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media screen and (max-width: 1000px) {
+
+    .ws-exp-section-inner,
+    .ws-exp-section-reverse
+    .ws-exp-section-inner {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .ws-exp-section-reverse
+    .ws-exp-section-copy,
+
+    .ws-exp-section-reverse
+    .ws-exp-gallery {
+
+        order: initial;
+
+    }
+
+
+    .ws-exp-gallery {
+
+        min-height: 570px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width: 700px) {
+
+    .ws-exp-hero {
+
+        min-height: 92vh;
+
+        padding:
+            135px 20px 100px;
+
+        text-align: center;
+
+    }
+
+
+    .ws-exp-hero-content {
+
+        margin: auto;
+
+    }
+
+
+    .ws-exp-eyebrow {
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+
+    .ws-exp-hero h1 {
+
+        font-size: 68px;
+
+        line-height: 0.78;
+
+        letter-spacing: -5px;
+
+    }
+
+
+    .ws-exp-hero h1 span {
+
+        margin-left: 0;
+
+    }
+
+
+    .ws-exp-scroll-label {
+
+        display: none;
+
+    }
+
+
+    .ws-exp-category-nav {
+
+        top: 68px;
+
+        padding:
+            12px 14px;
+
+    }
+
+
+    .ws-exp-category-inner {
+
+        justify-content: flex-start;
+
+    }
+
+
+    .ws-exp-section {
+
+        padding:
+            85px 20px;
+
+    }
+
+
+    .ws-exp-section-inner {
+
+        gap: 38px;
+
+    }
+
+
+    .ws-exp-section-copy {
+
+        text-align: center;
+
+    }
+
+
+    .ws-exp-section-copy h2 {
+
+        font-size: 54px;
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .ws-exp-section-copy h2 span {
+
+        margin-left: 0;
+
+    }
+
+
+    .ws-exp-section-description {
+
+        margin: auto;
+
+    }
+
+
+    .ws-exp-item-list {
+
+        justify-content: center;
+
+    }
+
+
+    .ws-exp-gallery {
+
+        min-height: 0;
+
+        display: flex;
+
+        overflow-x: auto;
+
+        gap: 15px;
+
+        padding-bottom: 10px;
+
+        scroll-snap-type:
+            x mandatory;
+
+        scrollbar-width: none;
+
+    }
+
+
+    .ws-exp-gallery::-webkit-scrollbar {
+
+        display: none;
+
+    }
+
+
+    .ws-exp-gallery-image {
+
+        width: 82vw;
+
+        min-width: 82vw;
+
+        height: 430px;
+
+        scroll-snap-align:
+            center;
+
+    }
+
+
+    .ws-exp-gallery-image-1 {
+
+        grid-row: auto;
+
+    }
+
+
+    .ws-exp-ticket-cta {
+
+        padding:
+            95px 20px;
+
+    }
+
+}
+
+
+@media screen and (max-width: 480px) {
+
+    .ws-exp-hero h1 {
+
+        font-size: 58px;
+
+    }
+
+
+    .ws-exp-hero-description {
+
+        font-size: 14px;
+
+    }
+
+
+    .ws-exp-section-copy h2 {
+
+        font-size: 47px;
+
+    }
+
+
+    .ws-exp-gallery-image {
+
+        width: 86vw;
+
+        min-width: 86vw;
+
+        height: 390px;
+
+    }
+
+}
+/* =========================================================
+   HOME HERO VIDEO BACKGROUND
+========================================================= */
+
+.hero-video-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        url("../assets/Hero.jpg")
+        center / cover
+        no-repeat;
+
+}
+
+
+/* VIDEO */
+
+.hero-background-video {
+
+    position: absolute;
+
+    top: 50%;
+
+    left: 50%;
+
+    z-index: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    min-width: 100%;
+
+    min-height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transform:
+        translate(-50%, -50%);
+
+    pointer-events: none;
+
+}
+
+
+/* OVERLAY VIDEO */
+
+.hero-video-section .hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 53, 94, 0.94) 0%,
+            rgba(5, 91, 151, 0.74) 45%,
+            rgba(11, 146, 220, 0.35) 100%
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* GLOW */
+
+.hero-video-section .hero-glow {
+
+    position: absolute;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+}
+
+
+/* HERO TEXT */
+
+.hero-video-section .hero-content {
+
+    position: relative;
+
+    z-index: 4;
+
+}
+
+
+/* HERO WAVE */
+
+.hero-video-section .hero-wave {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: -1px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+}
+
+
+/* BUBBLE TETAP TERLIHAT */
+
+.hero-video-section .floating-bubble,
+.hero-video-section .water-ripple {
+
+    z-index: 6;
+
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width: 700px) {
+
+    .hero-video-section {
+
+        min-height: 100svh;
+
+    }
+
+
+    .hero-background-video {
+
+        object-position: center center;
+
+    }
+
+}
+
+
+/* PENGGUNA YANG MEMATIKAN ANIMASI */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-background-video {
+
+        display: none;
+
+    }
+
+
+    .hero-video-section {
+
+        background:
+            linear-gradient(
+                90deg,
+                rgba(3, 53, 94, 0.82),
+                rgba(11, 146, 220, 0.42)
+            ),
+            url("../assets/Hero.jpg")
+            center / cover
+            no-repeat;
+
+    }
+
+}
+
+/* =========================================================
+   TICKET SECTION MENGGUNAKAN FOTO HERO LAMA
+========================================================= */
+
+.ticket-preview-section {
+    position: relative;
+    overflow: hidden;
+
+    background-image:
+        url("../assets/Hero.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Overlay foto background */
+
+.ticket-preview-section::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3, 53, 94, 0.88),
+            rgba(11, 146, 220, 0.64)
+        );
+}
+
+
+/* Konten tetap di atas overlay */
+
+.ticket-preview-section > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Heading section tiket */
+
+.ticket-preview-section .section-label {
+    color: var(--lime);
+}
+
+.ticket-preview-section .section-heading h2 {
+    color: var(--white);
+}
+
+.ticket-preview-section .section-heading > p:last-child {
+    color:
+        rgba(255, 255, 255, 0.84);
+}
+
+
+/* Tombol dan catatan */
+
+.ticket-preview-section .roleplay-note {
+    color:
+        rgba(255, 255, 255, 0.82);
+}
+
+
+/* Card tiket sengaja tidak diberi override.
+   Semua warna tetap mengikuti desain awal. */
+
+
+@media screen and (max-width: 700px) {
+
+    .ticket-preview-section {
+        background-attachment: scroll;
+    }
+
+}
+
+/* =========================================================
+   BACKGROUND HALAMAN TIKET MENGGUNAKAN HERO.JPG
+   WARNA CARD TETAP SEPERTI DESAIN AWAL
+========================================================= */
+
+.ticket-photo-bg {
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3, 53, 94, 0.84),
+            rgba(11, 146, 220, 0.62)
+        ),
+        url("../assets/Hero.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Hilangkan background putih dari area halaman tiket */
+
+.ticket-photo-bg main,
+.ticket-photo-bg .ticket-page,
+.ticket-photo-bg .ticket-section,
+.ticket-photo-bg .tickets-section,
+.ticket-photo-bg .buy-ticket-section {
+    background: transparent !important;
+}
+
+
+/* Heading halaman tiket */
+
+.ticket-photo-bg .section-heading h1,
+.ticket-photo-bg .section-heading h2,
+.ticket-photo-bg .ticket-heading h1,
+.ticket-photo-bg .ticket-heading h2 {
+    color: var(--white);
+}
+
+
+.ticket-photo-bg .section-heading p,
+.ticket-photo-bg .ticket-heading p {
+    color: rgba(255, 255, 255, 0.84);
+}
+
+
+/* Label kecil */
+
+.ticket-photo-bg .section-label {
+    color: var(--lime);
+}
+
+
+/* Card tiket tidak diubah.
+   Warna setiap card tetap mengikuti CSS awal. */
+
+
+@media screen and (max-width: 700px) {
+
+    .ticket-photo-bg {
+        background-attachment: scroll;
+    }
+
+}

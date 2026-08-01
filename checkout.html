@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Water Splash | Checkout</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+    <div class="bubble-layer"></div>
+
+
+    <header class="site-header inner-header">
+
+        <nav class="navbar">
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                WATER SPLASH
+            </a>
+
+            <a
+                href="tiket.html"
+                class="nav-button"
+            >
+                Back to Tickets
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <main class="checkout-page">
+
+        <div class="checkout-heading">
+
+            <p class="section-label">
+                WATER SPLASH CHECKOUT
+            </p>
+
+            <h1>
+                Complete Your Order
+            </h1>
+
+            <p>
+                Name and email are required.
+                Phone number is optional.
+            </p>
+
+        </div>
+
+
+        <div class="checkout-layout">
+
+            <form
+                class="checkout-form"
+                id="checkout-form"
+            >
+
+                <h2>
+                    Personal Information
+                </h2>
+
+
+                <label>
+
+                    <span>
+                        Full Name *
+                    </span>
+
+                    <input
+                        type="text"
+                        id="customer-name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                    <small
+                        class="error-message"
+                        id="name-error"
+                    ></small>
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        Email Address *
+                    </span>
+
+                    <input
+                        type="email"
+                        id="customer-email"
+                        placeholder="yourname@email.com"
+                        required
+                    >
+
+                    <small
+                        class="error-message"
+                        id="email-error"
+                    ></small>
+
+                </label>
+
+
+                <label>
+
+                    <span>
+                        Phone Number
+                    </span>
+
+                    <input
+                        type="tel"
+                        id="customer-phone"
+                        placeholder="Optional"
+                    >
+
+                </label>
+
+
+                <h2 class="payment-title">
+                    Payment Method
+                </h2>
+
+
+                <label class="payment-choice">
+
+                    <input
+                        type="radio"
+                        name="payment-method"
+                        value="Virtual Account"
+                        checked
+                    >
+
+                    <span>
+                        Virtual Account
+                    </span>
+
+                </label>
+
+
+                <label class="payment-choice">
+
+                    <input
+                        type="radio"
+                        name="payment-method"
+                        value="E-Wallet"
+                    >
+
+                    <span>
+                        E-Wallet
+                    </span>
+
+                </label>
+
+
+                <label class="payment-choice">
+
+                    <input
+                        type="radio"
+                        name="payment-method"
+                        value="Card"
+                    >
+
+                    <span>
+                        Credit or Debit Card
+                    </span>
+
+                </label>
+
+
+                <label class="agreement">
+
+                    <input
+                        type="checkbox"
+                        id="agreement"
+                    >
+
+                    <span>
+                        I understand that this is a fictional
+                        roleplay ticket transaction.
+                    </span>
+
+                </label>
+
+
+                <p
+                    class="checkout-form-message"
+                    id="checkout-form-message"
+                ></p>
+
+
+                <button
+                    type="submit"
+                    class="button button-blue checkout-button"
+                >
+                    Confirm Order
+                </button>
+
+            </form>
+
+
+
+            <aside class="order-summary">
+
+                <p class="summary-heading">
+                    YOUR ORDER
+                </p>
+
+
+                <h2 id="summary-ticket-name">
+                    Loading...
+                </h2>
+
+
+                <p id="summary-ticket-description">
+                    Loading ticket...
+                </p>
+
+
+                <strong
+                    class="summary-ticket-price"
+                    id="summary-ticket-price"
+                >
+                    Rp0
+                </strong>
+
+
+                <div class="quantity-row">
+
+                    <span>
+                        Quantity
+                    </span>
+
+
+                    <div class="quantity-control">
+
+                        <button
+                            type="button"
+                            id="quantity-minus"
+                        >
+                            −
+                        </button>
+
+                        <strong id="quantity-value">
+                            1
+                        </strong>
+
+                        <button
+                            type="button"
+                            id="quantity-plus"
+                        >
+                            +
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="fee-summary">
+
+                    <div>
+
+                        <span>
+                            Ticket subtotal
+                        </span>
+
+                        <strong id="subtotal-value">
+                            Rp0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Entertainment tax (10%)
+                        </span>
+
+                        <strong id="tax-value">
+                            Rp0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Platform service fee (5%)
+                        </span>
+
+                        <strong id="service-value">
+                            Rp0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Payment handling fee
+                        </span>
+
+                        <strong id="handling-value">
+                            Rp15.000
+                        </strong>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="total-row">
+
+                        <span>
+                            Total payment
+                        </span>
+
+                        <strong id="total-value">
+                            Rp0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/checkout.js"></script>
+
+</body>
+
+</html>
