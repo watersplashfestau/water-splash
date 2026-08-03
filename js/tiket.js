@@ -27,8 +27,8 @@ document.addEventListener(
                 admissions:
                     1,
 
-                status:
-                    "available"
+                stock:
+                    100
 
             },
 
@@ -53,8 +53,8 @@ document.addEventListener(
                 admissions:
                     1,
 
-                status:
-                    "available"
+                stock:
+                    100
 
             },
 
@@ -79,8 +79,8 @@ document.addEventListener(
                 admissions:
                     1,
 
-                status:
-                    "sold-out"
+                stock:
+                    100
 
             },
 
@@ -105,8 +105,8 @@ document.addEventListener(
                 admissions:
                     5,
 
-                status:
-                    "available"
+                stock:
+                    100
 
             }
 
@@ -145,17 +145,12 @@ document.addEventListener(
                         }
 
 
-                        if (
-                            selectedTicket.status ===
-                            "sold-out"
-                        ) {
-
-                            alert(
-                                "This ticket is currently sold out."
-                            );
-
+                        if (selectedTicket.stock <= 0) {
+                        
+                            alert("This ticket is currently sold out.");
+                        
                             return;
-
+                        
                         }
 
 
