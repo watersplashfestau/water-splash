@@ -690,8 +690,8 @@
 
 
         const status =
-            normalizeStatus(
-                ticket.status
+            getEffectiveStatus(
+                ticket
             );
 
 
@@ -952,8 +952,8 @@
 
 
         const status =
-            normalizeStatus(
-                ticket.status
+            getEffectiveStatus(
+                ticket
             );
 
 
@@ -1293,15 +1293,42 @@
     }
 
 
-
     function normalizeStatus(status) {
 
-        return String(
-            status ||
-            "AVAILABLE"
-        )
-            .trim()
-            .toUpperCase();
+    return String(
+        status ||
+        "AVAILABLE"
+    )
+        .trim()
+        .toUpperCase();
+
+    }
+
+    function getEffectiveStatus(ticket) {
+    
+        const manualStatus =
+            normalizeStatus(ticket.status);
+    
+        const remaining =
+            ticket.remaining === undefined ||
+            ticket.remaining === "" ||
+            ticket.remaining === null
+                ? null
+                : Number(ticket.remaining);
+
+
+    if (
+        remaining !== null &&
+        !Number.isNaN(remaining) &&
+        remaining <= 0
+    ) {
+
+        return "SOLD_OUT";
+
+    }
+
+
+    return manualStatus;
 
     }
 
