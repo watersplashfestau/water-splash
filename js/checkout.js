@@ -1,23 +1,6 @@
 "use strict";
 
 
-const selectedTicket =
-    JSON.parse(
-        localStorage.getItem(
-            "selectedTicket"
-        )
-    );
-
-
-if(!selectedTicket){
-
-    window.location.replace(
-        "tiket.html"
-    );
-
-}
-
-
 const TAX_RATE =
     0.10;
 
@@ -31,9 +14,71 @@ const HANDLING_FEE =
 let quantity =
     1;
 
+let selectedTicket =
+    null;
 
 
-function formatRupiah(value){
+
+function getTicketIdFromUrl() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    return params.get(
+        "ticket"
+    );
+
+}
+
+
+
+function findTicketFromLiveData() {
+
+    const ticketId =
+        getTicketIdFromUrl();
+
+
+    if (!ticketId) {
+
+        return null;
+
+    }
+
+
+    const liveData =
+        window.WATER_SPLASH_DATA;
+
+
+    const tickets =
+        liveData &&
+        Array.isArray(
+            liveData.tickets
+        )
+            ? liveData.tickets
+            : [];
+
+
+    return (
+        tickets.find(
+            function (ticket) {
+
+                return (
+                    ticket.id ===
+                    ticketId
+                );
+
+            }
+        ) || null
+    );
+
+}
+
+
+
+function formatRupiah(value) {
 
     return new Intl.NumberFormat(
         "id-ID",
@@ -53,10 +98,17 @@ function formatRupiah(value){
 
 
 
-function calculateOrder(){
+function calculateOrder() {
+
+    const price =
+        Number(
+            selectedTicket.price ||
+            0
+        );
+
 
     const subtotal =
-        selectedTicket.price *
+        price *
         quantity;
 
 
@@ -94,7 +146,7 @@ function calculateOrder(){
 
 
 
-function updateCheckout(){
+function updateCheckout() {
 
     const calculation =
         calculateOrder();
@@ -122,7 +174,10 @@ function updateCheckout(){
         )
         .textContent =
         formatRupiah(
-            selectedTicket.price
+            Number(
+                selectedTicket.price ||
+                0
+            )
         );
 
 
@@ -187,49 +242,7 @@ function updateCheckout(){
 
 
 
-document
-    .getElementById(
-        "quantity-minus"
-    )
-    .addEventListener(
-        "click",
-        function(){
-
-            if(quantity > 1){
-
-                quantity -= 1;
-
-                updateCheckout();
-
-            }
-
-        }
-    );
-
-
-
-document
-    .getElementById(
-        "quantity-plus"
-    )
-    .addEventListener(
-        "click",
-        function(){
-
-            if(quantity < 10){
-
-                quantity += 1;
-
-                updateCheckout();
-
-            }
-
-        }
-    );
-
-
-
-function generateOrderId(){
+function generateOrderId() {
 
     return (
         "WS-260815-" +
@@ -242,206 +255,301 @@ function generateOrderId(){
 
 
 
-document
-    .getElementById(
-        "checkout-form"
-    )
-    .addEventListener(
-        "submit",
-        function(event){
+function setupHandlers() {
 
-            event.preventDefault();
+    document
+        .getElementById(
+            "quantity-minus"
+        )
+        .addEventListener(
+            "click",
+            function () {
 
+                if (quantity > 1) {
 
-            const nameInput =
-                document.getElementById(
-                    "customer-name"
-                );
+                    quantity -= 1;
 
+                    updateCheckout();
 
-            const emailInput =
-                document.getElementById(
-                    "customer-email"
-                );
+                }
 
-
-            const phoneInput =
-                document.getElementById(
-                    "customer-phone"
-                );
+            }
+        );
 
 
-            const agreement =
-                document.getElementById(
-                    "agreement"
-                );
+    document
+        .getElementById(
+            "quantity-plus"
+        )
+        .addEventListener(
+            "click",
+            function () {
+
+                if (quantity < 10) {
+
+                    quantity += 1;
+
+                    updateCheckout();
+
+                }
+
+            }
+        );
 
 
-            const message =
-                document.getElementById(
-                    "checkout-form-message"
-                );
+    document
+        .getElementById(
+            "checkout-form"
+        )
+        .addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
 
 
-            const name =
-                nameInput.value.trim();
+                const nameInput =
+                    document.getElementById(
+                        "customer-name"
+                    );
 
 
-            const email =
-                emailInput.value.trim();
+                const emailInput =
+                    document.getElementById(
+                        "customer-email"
+                    );
 
 
-            const phone =
-                phoneInput.value.trim();
+                const phoneInput =
+                    document.getElementById(
+                        "customer-phone"
+                    );
 
 
-            const emailPattern =
-                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const agreement =
+                    document.getElementById(
+                        "agreement"
+                    );
 
 
-            document
-                .getElementById(
-                    "name-error"
-                )
-                .textContent =
-                "";
+                const message =
+                    document.getElementById(
+                        "checkout-form-message"
+                    );
 
 
-            document
-                .getElementById(
-                    "email-error"
-                )
-                .textContent =
-                "";
+                const name =
+                    nameInput.value.trim();
 
 
-            message.textContent =
-                "";
+                const email =
+                    emailInput.value.trim();
 
 
-            let valid =
-                true;
+                const phone =
+                    phoneInput.value.trim();
 
 
-            if(name.length < 2){
+                const emailPattern =
+                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
                 document
                     .getElementById(
                         "name-error"
                     )
                     .textContent =
-                    "Please enter your full name.";
+                    "";
 
-                valid =
-                    false;
-
-            }
-
-
-            if(!emailPattern.test(email)){
 
                 document
                     .getElementById(
                         "email-error"
                     )
                     .textContent =
-                    "Please enter a valid email.";
+                    "";
 
-                valid =
-                    false;
-
-            }
-
-
-            if(!agreement.checked){
 
                 message.textContent =
-                    "Please confirm the roleplay agreement.";
-
-                valid =
-                    false;
-
-            }
+                    "";
 
 
-            if(!valid){
-
-                return;
-
-            }
+                let valid =
+                    true;
 
 
-            const calculation =
-                calculateOrder();
+                if (name.length < 2) {
+
+                    document
+                        .getElementById(
+                            "name-error"
+                        )
+                        .textContent =
+                        "Please enter your full name.";
+
+                    valid =
+                        false;
+
+                }
 
 
-            const paymentMethod =
-                document
-                    .querySelector(
-                        'input[name="payment-method"]:checked'
+                if (!emailPattern.test(email)) {
+
+                    document
+                        .getElementById(
+                            "email-error"
+                        )
+                        .textContent =
+                        "Please enter a valid email.";
+
+                    valid =
+                        false;
+
+                }
+
+
+                if (!agreement.checked) {
+
+                    message.textContent =
+                        "Please confirm the roleplay agreement.";
+
+                    valid =
+                        false;
+
+                }
+
+
+                if (!valid) {
+
+                    return;
+
+                }
+
+
+                const calculation =
+                    calculateOrder();
+
+
+                const paymentMethod =
+                    document
+                        .querySelector(
+                            'input[name="payment-method"]:checked'
+                        )
+                        .value;
+
+
+                const admissionsPerTicket =
+                    Math.max(
+                        1,
+                        Number(
+                            selectedTicket.admissions ||
+                            1
+                        )
+                    );
+
+
+                const orderData = {
+
+                    orderId:
+                        generateOrderId(),
+
+                    name:
+                        name,
+
+                    email:
+                        email,
+
+                    phone:
+                        phone ||
+                        "Not provided",
+
+                    ticket:
+                        selectedTicket,
+
+                    quantity:
+                        quantity,
+
+                    admissionCount:
+                        quantity *
+                        admissionsPerTicket,
+
+                    paymentMethod:
+                        paymentMethod,
+
+                    subtotal:
+                        calculation.subtotal,
+
+                    tax:
+                        calculation.tax,
+
+                    service:
+                        calculation.service,
+
+                    handling:
+                        HANDLING_FEE,
+
+                    total:
+                        calculation.total
+
+                };
+
+
+                localStorage.setItem(
+                    "orderData",
+                    JSON.stringify(
+                        orderData
                     )
-                    .value;
+                );
 
 
-            const orderData = {
+                window.location.href =
+                    "confirmation.html";
 
-                orderId:
-                    generateOrderId(),
+            }
+        );
 
-                name:
-                    name,
-
-                email:
-                    email,
-
-                phone:
-                    phone ||
-                    "Not provided",
-
-                ticket:
-                    selectedTicket,
-
-                quantity:
-                    quantity,
-
-                admissionCount:
-                    quantity *
-                    selectedTicket.admissions,
-
-                paymentMethod:
-                    paymentMethod,
-
-                subtotal:
-                    calculation.subtotal,
-
-                tax:
-                    calculation.tax,
-
-                service:
-                    calculation.service,
-
-                handling:
-                    HANDLING_FEE,
-
-                total:
-                    calculation.total
-
-            };
+}
 
 
-            localStorage.setItem(
-                "orderData",
-                JSON.stringify(
-                    orderData
-                )
-            );
+
+function initCheckout() {
+
+    selectedTicket =
+        findTicketFromLiveData();
 
 
-            window.location.href =
-                "confirmation.html";
+    if (!selectedTicket) {
 
-        }
+        window.location.replace(
+            "tiket.html"
+        );
+
+        return;
+
+    }
+
+
+    setupHandlers();
+
+    updateCheckout();
+
+}
+
+
+
+// Data Sheet dimuat secara async oleh sheet-control.js.
+// Kalau sudah tersedia saat file ini jalan, langsung pakai.
+// Kalau belum, tunggu event "waterSplashDataLoaded".
+if (window.WATER_SPLASH_DATA) {
+
+    initCheckout();
+
+} else {
+
+    document.addEventListener(
+        "waterSplashDataLoaded",
+        initCheckout,
+        { once: true }
     );
 
-
-updateCheckout();
+}
