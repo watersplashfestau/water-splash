@@ -118,6 +118,14 @@
                     data;
 
 
+                document.dispatchEvent(
+                    new CustomEvent(
+                        "waterSplashDataLoaded",
+                        { detail: data }
+                    )
+                );
+
+
                 applyAllData(
                     data
                 );
@@ -1293,22 +1301,26 @@
     }
 
 
+
     function normalizeStatus(status) {
 
-    return String(
-        status ||
-        "AVAILABLE"
-    )
-        .trim()
-        .toUpperCase();
+        return String(
+            status ||
+            "AVAILABLE"
+        )
+            .trim()
+            .toUpperCase();
 
     }
 
+
+
     function getEffectiveStatus(ticket) {
-    
+
         const manualStatus =
             normalizeStatus(ticket.status);
-    
+
+
         const remaining =
             ticket.remaining === undefined ||
             ticket.remaining === "" ||
@@ -1317,18 +1329,18 @@
                 : Number(ticket.remaining);
 
 
-    if (
-        remaining !== null &&
-        !Number.isNaN(remaining) &&
-        remaining <= 0
-    ) {
+        if (
+            remaining !== null &&
+            !Number.isNaN(remaining) &&
+            remaining <= 0
+        ) {
 
-        return "SOLD_OUT";
+            return "SOLD_OUT";
 
-    }
+        }
 
 
-    return manualStatus;
+        return manualStatus;
 
     }
 
